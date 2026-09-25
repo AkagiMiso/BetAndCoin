@@ -1,0 +1,268 @@
+{
+  "format_version": "1.9.0",
+  "credit": "Made with Blockbench",
+  "texture_size": [
+    256,
+    256
+  ],
+  "textures": {
+    "0": "bet_and_coin:block/bar_neon_sign_glow",
+    "particle": "bet_and_coin:block/bar_neon_sign_dark"
+  },
+  "elements": [
+    {
+      "name": "字体中正",
+      "from": [
+        2.75,
+        1.5,
+        8.73
+      ],
+      "to": [
+        13.25,
+        14,
+        8.73
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          8,
+          7.75,
+          8.75
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            2.625,
+            3.125
+          ],
+          "texture": "#0"
+        }
+      }
+    },
+    {
+      "name": "字体中反",
+      "from": [
+        2.75,
+        1.5,
+        8.75
+      ],
+      "to": [
+        13.25,
+        14,
+        8.75
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          8,
+          7.75,
+          8.75
+        ]
+      },
+      "faces": {
+        "south": {
+          "uv": [
+            2.75,
+            0,
+            5.375,
+            3.125
+          ],
+          "texture": "#0"
+        }
+      }
+    },
+    {
+      "name": "字体左正",
+      "from": [
+        14.25,
+        1.5,
+        8.73
+      ],
+      "to": [
+        24.75,
+        14,
+        8.73
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          19.5,
+          7.75,
+          8.75
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            3.25,
+            2.625,
+            6.375
+          ],
+          "texture": "#0"
+        }
+      }
+    },
+    {
+      "name": "字体左反",
+      "from": [
+        14.25,
+        1.5,
+        8.75
+      ],
+      "to": [
+        24.75,
+        14,
+        8.75
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          19.5,
+          7.75,
+          8.75
+        ]
+      },
+      "faces": {
+        "south": {
+          "uv": [
+            5.375,
+            3.25,
+            2.75,
+            6.375
+          ],
+          "texture": "#0"
+        }
+      }
+    },
+    {
+      "name": "字体右正",
+      "from": [
+        -8.75,
+        1.5,
+        8.73
+      ],
+      "to": [
+        1.75,
+        14,
+        8.73
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          -3.5,
+          7.75,
+          8.75
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            5.5,
+            0,
+            8.125,
+            3.125
+          ],
+          "texture": "#0"
+        }
+      }
+    },
+    {
+      "name": "字体右反",
+      "from": [
+        -8.75,
+        1.5,
+        8.75
+      ],
+      "to": [
+        1.75,
+        14,
+        8.75
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          -3.5,
+          7.75,
+          8.75
+        ]
+      },
+      "faces": {
+        "south": {
+          "uv": [
+            8.125,
+            3.25,
+            5.5,
+            6.375
+          ],
+          "texture": "#0"
+        }
+      }
+    }
+  ],
+  "groups": [
+    {
+      "name": "发光层",
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "scope": 0,
+      "color": 0,
+      "children": [
+        {
+          "name": "发光中",
+          "origin": [
+            8,
+            8,
+            8
+          ],
+          "scope": 0,
+          "color": 0,
+          "children": [
+            0,
+            1
+          ]
+        },
+        {
+          "name": "发光左",
+          "origin": [
+            8,
+            8,
+            8
+          ],
+          "scope": 0,
+          "color": 0,
+          "children": [
+            2,
+            3
+          ]
+        },
+        {
+          "name": "发光右",
+          "origin": [
+            8,
+            8,
+            8
+          ],
+          "scope": 0,
+          "color": 0,
+          "children": [
+            4,
+            5
+          ]
+        }
+      ]
+    }
+  ]
+}

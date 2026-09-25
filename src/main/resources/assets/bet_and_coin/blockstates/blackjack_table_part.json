@@ -1,0 +1,67 @@
+{
+  "variants": {
+    "facing=north,part=back_left": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=north,part=back_right": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=north,part=front_left": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=north,part=front_center": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=north,part=front_right": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+
+    "facing=east,part=back_left": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=east,part=back_right": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=east,part=front_left": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=east,part=front_center": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=east,part=front_right": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+
+    "facing=south,part=back_left": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=south,part=back_right": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=south,part=front_left": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=south,part=front_center": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=south,part=front_right": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+
+    "facing=west,part=back_left": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=west,part=back_right": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=west,part=front_left": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=west,part=front_center": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    },
+    "facing=west,part=front_right": {
+      "model": "bet_and_coin:block/blackjack_table_particle"
+    }
+  }
+}

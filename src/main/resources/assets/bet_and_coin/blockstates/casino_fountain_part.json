@@ -1,0 +1,292 @@
+{
+  "variants": {
+    "facing=north,part=x_neg2_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_neg1_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_0_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_1_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_2_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_neg2_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_neg1_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_0_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_1_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_2_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_neg2_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_neg1_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_1_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_2_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_neg2_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_neg1_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_0_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_1_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_2_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_neg2_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_neg1_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_0_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_1_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=north,part=x_2_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_neg2_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_neg1_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_0_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_1_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_2_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_neg2_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_neg1_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_0_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_1_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_2_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_neg2_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_neg1_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_1_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_2_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_neg2_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_neg1_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_0_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_1_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_2_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_neg2_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_neg1_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_0_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_1_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=east,part=x_2_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_neg2_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_neg1_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_0_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_1_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_2_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_neg2_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_neg1_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_0_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_1_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_2_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_neg2_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_neg1_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_1_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_2_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_neg2_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_neg1_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_0_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_1_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_2_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_neg2_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_neg1_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_0_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_1_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=south,part=x_2_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_neg2_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_neg1_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_0_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_1_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_2_z_neg2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_neg2_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_neg1_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_0_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_1_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_2_z_neg1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_neg2_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_neg1_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_1_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_2_z_0": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_neg2_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_neg1_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_0_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_1_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_2_z_1": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_neg2_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_neg1_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_0_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_1_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    },
+    "facing=west,part=x_2_z_2": {
+      "model": "bet_and_coin:block/casino_fountain_part"
+    }
+  }
+}

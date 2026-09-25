@@ -1,0 +1,39 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "facing": "north"
+      },
+      "apply": {
+        "model": "bet_and_coin:block/bar_neon_sign_dark"
+      }
+    },
+    {
+      "when": {
+        "facing": "east"
+      },
+      "apply": {
+        "model": "bet_and_coin:block/bar_neon_sign_dark",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "south"
+      },
+      "apply": {
+        "model": "bet_and_coin:block/bar_neon_sign_dark",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "west"
+      },
+      "apply": {
+        "model": "bet_and_coin:block/bar_neon_sign_dark",
+        "y": 270
+      }
+    }
+  ]
+}

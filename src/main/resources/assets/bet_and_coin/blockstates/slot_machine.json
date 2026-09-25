@@ -1,0 +1,43 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "half": "lower",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "bet_and_coin:block/slot_machine_static"
+      }
+    },
+    {
+      "when": {
+        "half": "lower",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "bet_and_coin:block/slot_machine_static",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "half": "lower",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "bet_and_coin:block/slot_machine_static",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "half": "lower",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "bet_and_coin:block/slot_machine_static",
+        "y": 270
+      }
+    }
+  ]
+}

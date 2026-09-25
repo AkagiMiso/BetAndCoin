@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bet_and_coin:item/casino_fountain_item"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "bet_and_coin:block/casino_farkle_table_main"
+  }
+}

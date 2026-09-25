@@ -1,0 +1,25 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"texture_size": [128, 128],
+	"textures": {
+		"0": "bet_and_coin:block/slot_machine_lever",
+		"particle": "bet_and_coin:block/slot_machine_lever"
+	},
+	"elements": [
+		{
+			"name": "摇杆",
+			"from": [2, 21.75, 4.5],
+			"to": [3, 22.75, 8.5],
+			"rotation": {"angle": 45, "axis": "x", "origin": [2.5, 22.25, 8.5]},
+			"faces": {
+				"north": {"uv": [5.25, 3.25, 5.375, 3.375], "texture": "#0"},
+				"east": {"uv": [8.125, 1.75, 8.625, 1.875], "texture": "#0"},
+				"south": {"uv": [5.25, 3.375, 5.375, 3.5], "texture": "#0"},
+				"west": {"uv": [2.875, 8.25, 3.375, 8.375], "texture": "#0"},
+				"up": {"uv": [3.5, 8.75, 3.375, 8.25], "texture": "#0"},
+				"down": {"uv": [3.625, 8.25, 3.5, 8.75], "texture": "#0"}
+			}
+		}
+	]
+}

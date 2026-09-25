@@ -1,0 +1,39 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+
+# Files from Forge MDK
+forge*changelog.txt
+
+# Forge MDK release history (not this mod's changelog)
+/changelog.txt
+
+# Generated resources and runtime diagnostics
+/src/generated/
+*.log
+*.log.gz
+*.class
+*.cache
+.cache/
+crash-reports/
+hs_err_pid*
+replay_pid*

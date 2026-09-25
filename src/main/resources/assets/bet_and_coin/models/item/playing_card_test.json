@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "bet_and_coin:item/playing_card_test"
+  }
+}

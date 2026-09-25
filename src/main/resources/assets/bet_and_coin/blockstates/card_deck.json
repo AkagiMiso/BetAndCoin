@@ -1,0 +1,35 @@
+{
+  "variants": {
+    "facing=north,full=true": {
+      "model": "bet_and_coin:block/card_deck_full"
+    },
+    "facing=east,full=true": {
+      "model": "bet_and_coin:block/card_deck_full",
+      "y": 90
+    },
+    "facing=south,full=true": {
+      "model": "bet_and_coin:block/card_deck_full",
+      "y": 180
+    },
+    "facing=west,full=true": {
+      "model": "bet_and_coin:block/card_deck_full",
+      "y": 270
+    },
+
+    "facing=north,full=false": {
+      "model": "bet_and_coin:block/card_deck_thin"
+    },
+    "facing=east,full=false": {
+      "model": "bet_and_coin:block/card_deck_thin",
+      "y": 90
+    },
+    "facing=south,full=false": {
+      "model": "bet_and_coin:block/card_deck_thin",
+      "y": 180
+    },
+    "facing=west,full=false": {
+      "model": "bet_and_coin:block/card_deck_thin",
+      "y": 270
+    }
+  }
+}

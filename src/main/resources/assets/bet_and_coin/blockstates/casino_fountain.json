@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "bet_and_coin:block/casino_fountain_particle"
+    },
+    "facing=east": {
+      "model": "bet_and_coin:block/casino_fountain_particle"
+    },
+    "facing=south": {
+      "model": "bet_and_coin:block/casino_fountain_particle"
+    },
+    "facing=west": {
+      "model": "bet_and_coin:block/casino_fountain_particle"
+    }
+  }
+}

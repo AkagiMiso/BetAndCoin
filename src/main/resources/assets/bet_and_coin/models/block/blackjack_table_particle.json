@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "bet_and_coin:block/blackjack_table_particle"
+  }
+}

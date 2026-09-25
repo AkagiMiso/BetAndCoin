@@ -1,0 +1,22 @@
+{
+  "lever_pull": {
+    "sounds": [
+      "bet_and_coin:lever_pull"
+    ]
+  },
+  "reel_spin": {
+    "sounds": [
+      "bet_and_coin:reel_spin"
+    ]
+  },
+  "win": {
+    "sounds": [
+      "bet_and_coin:win"
+    ]
+  },
+  "bar_neon_power_stabilize": {
+    "sounds": [
+      "bet_and_coin:block/bar_neon_power_stabilize"
+    ]
+  }
+}

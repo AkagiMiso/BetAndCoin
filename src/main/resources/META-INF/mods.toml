@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="bet_and_coin"
+version="${file.jarVersion}"
+displayName="Bet & Coin"
+authors="AkagiMiso"
+description='''
+Adds casino games, machines, furniture, cards, chips, and related decorative content.
+'''
+
+[[dependencies.bet_and_coin]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.34,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.bet_and_coin]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5,1.17)"
+ordering="NONE"
+side="BOTH"
