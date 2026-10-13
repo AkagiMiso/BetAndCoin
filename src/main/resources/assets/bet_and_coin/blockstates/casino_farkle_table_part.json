@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "offset_x=0,offset_z=0": {
+      "model": "bet_and_coin:block/casino_farkle_table"
+    },
+    "offset_x=0,offset_z=1": {
+      "model": "bet_and_coin:block/casino_farkle_table"
+    },
+    "offset_x=0,offset_z=2": {
+      "model": "bet_and_coin:block/casino_farkle_table"
+    },
+    "offset_x=1,offset_z=0": {
+      "model": "bet_and_coin:block/casino_farkle_table"
+    },
+    "offset_x=1,offset_z=1": {
+      "model": "bet_and_coin:block/casino_farkle_table"
+    },
+    "offset_x=1,offset_z=2": {
+      "model": "bet_and_coin:block/casino_farkle_table"
+    },
+    "offset_x=2,offset_z=0": {
+      "model": "bet_and_coin:block/casino_farkle_table"
+    },
+    "offset_x=2,offset_z=1": {
+      "model": "bet_and_coin:block/casino_farkle_table"
+    },
+    "offset_x=2,offset_z=2": {
+      "model": "bet_and_coin:block/casino_farkle_table"
+    }
+  }
+}

@@ -20,6 +20,7 @@ build
 # other
 eclipse
 run
+/run-server/
 
 # Files from Forge MDK
 forge*changelog.txt
@@ -37,3 +38,26 @@ forge*changelog.txt
 crash-reports/
 hs_err_pid*
 replay_pid*
+
+# Local downloads, previews and publishing work in progress
+/downloads/
+/tmp/
+/docs/branding/
+/docs/release-page/
+/Farkle游戏操作指南_联机测试版.txt
+/Forge服务器部署命令_1.16.5.txt
+/PCL2玩家安装指南_联机测试版.txt
+/模组审查报告_2026-10-06.md
+/玩法指南_内容核对初稿.md
+/轮盘赌桌开发与测试说明.md
+
+# Guide assets: publish only the final bilingual illustrations
+/docs/guide/assets/*
+!/docs/guide/assets/farkle-annotated-en-v1.png
+!/docs/guide/assets/blackjack-annotated-en-v1.png
+!/docs/guide/assets/roulette-annotated-en-v1.png
+!/docs/guide/assets/slot-annotated-en-v1.png
+!/docs/guide/assets/farkle-annotated-v4-unified.png
+!/docs/guide/assets/blackjack-annotated-v4-unified.png
+!/docs/guide/assets/roulette-annotated-v5-front.png
+!/docs/guide/assets/slot-annotated-v4-unified.png

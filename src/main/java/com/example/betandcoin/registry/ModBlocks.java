@@ -1,15 +1,20 @@
 package com.example.betandcoin.registry;
 
 import com.example.betandcoin.BetAndCoin;
+import com.example.betandcoin.block.RouletteTableBlock;
+import com.example.betandcoin.block.RouletteTablePartBlock;
 import com.example.betandcoin.block.BarNeonSignBlock;
 import com.example.betandcoin.block.BarTableClutterBlock;
 import com.example.betandcoin.block.BlackjackTableBlock;
 import com.example.betandcoin.block.BlackjackTablePartBlock;
 import com.example.betandcoin.block.CardDeckBlock;
 import com.example.betandcoin.block.CasinoFarkleTableBlock;
+import com.example.betandcoin.block.CasinoFarkleTablePartBlock;
 import com.example.betandcoin.block.CasinoFountainBlock;
 import com.example.betandcoin.block.CasinoFountainPartBlock;
+import com.example.betandcoin.block.ReceptionPodiumBlock;
 import com.example.betandcoin.block.SlotMachineBlock;
+import com.example.betandcoin.block.VelvetBarrierBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -63,6 +68,12 @@ public final class ModBlocks {
                             .strength(1.5F, 3.0F).sound(SoundType.METAL).noOcclusion()
                             .lightLevel(state -> state.getValue(BarNeonSignBlock.LIT) ? 12 : 0)));
 
+    public static final RegistryObject<Block> RECEPTION_PODIUM =
+            BLOCKS.register("reception_podium",
+                    () -> new ReceptionPodiumBlock(AbstractBlock.Properties.of(Material.WOOD)
+                            .strength(1.5F, 3.0F).sound(SoundType.WOOD).noOcclusion()
+                            .lightLevel(state -> state.getValue(ReceptionPodiumBlock.LIT) ? 8 : 0)));
+
     public static final RegistryObject<Block> BAR_TABLE_CLUTTER =
             BLOCKS.register("bar_table_clutter",
                     () -> new BarTableClutterBlock(AbstractBlock.Properties.of(Material.WOOD)
@@ -74,6 +85,22 @@ public final class ModBlocks {
             BLOCKS.register("casino_farkle_table",
                     () -> new CasinoFarkleTableBlock(AbstractBlock.Properties.of(Material.WOOD)
                             .strength(2.5F, 6.0F).sound(SoundType.WOOD).noOcclusion()));
+
+    public static final RegistryObject<Block> CASINO_FARKLE_TABLE_PART =
+            BLOCKS.register("casino_farkle_table_part",
+                    () -> new CasinoFarkleTablePartBlock(AbstractBlock.Properties.of(Material.WOOD)
+                            .strength(2.5F, 6.0F).sound(SoundType.WOOD).noOcclusion().noDrops()));
+    public static final RegistryObject<Block> VELVET_BARRIER =
+            BLOCKS.register("velvet_barrier",
+                    () -> new VelvetBarrierBlock(AbstractBlock.Properties.of(Material.METAL)
+                            .strength(1.5F, 3.0F).sound(SoundType.METAL).noOcclusion()));
+
+    public static final RegistryObject<Block> ROULETTE_TABLE =
+            BLOCKS.register("roulette_table", () -> new RouletteTableBlock(AbstractBlock.Properties.of(Material.WOOD)
+                    .strength(2.5F, 6.0F).sound(SoundType.WOOD).noOcclusion()));
+    public static final RegistryObject<Block> ROULETTE_TABLE_PART =
+            BLOCKS.register("roulette_table_part", () -> new RouletteTablePartBlock(AbstractBlock.Properties.of(Material.WOOD)
+                    .strength(2.5F, 6.0F).sound(SoundType.WOOD).noOcclusion().noDrops()));
 
     private ModBlocks() {
     }

@@ -1,11 +1,7 @@
 {
   "parent": "bet_and_coin:block/bar_neon_sign_dark",
   "display": {
-    "gui": {
-      "rotation": [30, 225, 0],
-      "translation": [0, 0, 0],
-      "scale": [0.34, 0.34, 0.34]
-    },
+    "gui": {"rotation": [30, 225, 0], "translation": [0.2783, -0.0255, 0], "scale": [0.52471, 0.52471, 0.52471]},
     "ground": {
       "rotation": [0, 0, 0],
       "translation": [0, 3, 0],
@@ -16,16 +12,8 @@
       "translation": [0, 0, 0],
       "scale": [0.42, 0.42, 0.42]
     },
-    "thirdperson_righthand": {
-      "rotation": [75, 45, 0],
-      "translation": [0, 2.5, 0],
-      "scale": [0.22, 0.22, 0.22]
-    },
-    "thirdperson_lefthand": {
-      "rotation": [75, 225, 0],
-      "translation": [0, 2.5, 0],
-      "scale": [0.22, 0.22, 0.22]
-    },
+    "thirdperson_righthand": {"rotation": [75, 45, 0], "translation": [-0.086, 2.59356, 0.0169], "scale": [0.162162, 0.162162, 0.162162]},
+    "thirdperson_lefthand": {"rotation": [75, 45, 0], "translation": [-0.086, 2.59356, 0.0169], "scale": [0.162162, 0.162162, 0.162162]},
     "firstperson_righthand": {
       "rotation": [0, 45, 0],
       "translation": [1.5, 2.5, 0],

@@ -1,0 +1,3 @@
+{"parent":"bet_and_coin:block/roulette_table_main","display":{
+    "thirdperson_lefthand": {"rotation": [75, 45, 0], "translation": [0.13258, 2.34767, -0.05624], "scale": [0.1875, 0.1875, 0.1875]},
+    "thirdperson_righthand": {"rotation": [75, 45, 0], "translation": [0.13258, 2.34767, -0.05624], "scale": [0.1875, 0.1875, 0.1875]},"gui":{"rotation": [30, 225, 0], "translation": [-0.28, 0.14, 0], "scale": [0.39598, 0.39598, 0.39598]},"ground":{"translation":[0,3,0],"scale":[0.4,0.4,0.4]},"firstperson_righthand":{"rotation":[0,45,0],"scale":[0.4,0.4,0.4]}}}

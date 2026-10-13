@@ -1,5 +1,7 @@
 package com.example.betandcoin.block;
 
+import net.minecraft.block.material.PushReaction;
+
 import com.example.betandcoin.block.CasinoFountainPartBlock.FountainPart;
 import com.example.betandcoin.registry.ModBlocks;
 import com.example.betandcoin.registry.ModTileEntities;
@@ -32,6 +34,11 @@ import javax.annotation.Nullable;
  */
 public class CasinoFountainBlock extends HorizontalBlock {
 
+    @Override
+    public PushReaction getPistonPushReaction(BlockState state) {
+        return PushReaction.BLOCK;
+    }
+
     public static final DirectionProperty FACING =
             HorizontalBlock.FACING;
 
@@ -59,11 +66,14 @@ public class CasinoFountainBlock extends HorizontalBlock {
         BlockPos mainPos = context.getClickedPos();
         World world = context.getLevel();
 
+        if (!world.getWorldBorder().isWithinBounds(mainPos)) return null;
+
         for (FountainPart part : FountainPart.values()) {
             BlockPos partPos =
                     getPartBlockPos(mainPos, facing, part);
 
-            if (!world.getBlockState(partPos)
+            if (!world.getWorldBorder().isWithinBounds(partPos)
+                    || !world.getBlockState(partPos)
                     .getMaterial()
                     .isReplaceable()) {
                 return null;

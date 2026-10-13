@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#162b31"><meta name="description" content="Bet & Coin 图解玩法指南：Farkle、Blackjack、轮盘与老虎机。">
+<title>Bet & Coin · 玩法指南</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23162b31'/%3E%3Cg fill='%23e9bd47'%3E%3Ccircle cx='18' cy='18' r='5'/%3E%3Ccircle cx='46' cy='18' r='5'/%3E%3Ccircle cx='32' cy='32' r='5'/%3E%3Ccircle cx='18' cy='46' r='5'/%3E%3Ccircle cx='46' cy='46' r='5'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+:root{--ink:#162b31;--muted:#53676b;--paper:#f7f8f6;--line:#d9e2df;--teal:#39a8ad;--green:#247953;--gold:#e9bd47;--red:#b53e35;--cyan:#e4f1ef}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font-family:system-ui,-apple-system,"Microsoft YaHei","PingFang SC",sans-serif;line-height:1.75}button{font:inherit}a{color:inherit}button,a,summary{touch-action:manipulation}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--teal);outline-offset:4px}header{background:var(--ink);color:white}.shell{max-width:1100px;width:calc(100% - 48px);margin:auto}.top{height:66px;display:flex;align-items:center;justify-content:space-between}.brand{text-decoration:none;font-size:19px;font-weight:850;letter-spacing:.06em}.brand span{color:var(--gold)}.edition{font-size:12px;color:#c3d9d9;letter-spacing:.05em}.intro{padding:46px 0 30px;display:flex;justify-content:space-between;align-items:center;gap:25px}.eyebrow{font-size:12px;color:var(--green);font-weight:800;letter-spacing:.14em;margin:0 0 10px}h1{font-size:clamp(28px,4vw,43px);line-height:1.25;letter-spacing:-.035em;margin:0 0 12px}.lead{color:var(--muted);margin:0;font-size:15px}.intro-mark{display:grid;place-items:center;width:78px;height:78px;background:var(--ink);border:7px solid var(--teal);box-shadow:7px 7px 0 var(--gold);transform:rotate(9deg);font-size:47px;color:white;flex-shrink:0}.navigation{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 35px}.nav{border:1px solid var(--line);background:white;cursor:pointer;text-align:left;padding:15px 16px;display:flex;align-items:center;gap:12px;transition:background .15s}.nav:hover{background:var(--cyan)}.nav[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:white;box-shadow:0 4px 0 var(--teal)}.nav .symbol{font-size:26px;color:var(--teal);line-height:1}.nav[aria-pressed=true] .symbol{color:var(--gold)}.nav b{font-size:14px;display:block}.nav small{font-size:11px;color:var(--muted);display:block}.nav[aria-pressed=true] small{color:#c6d9d9}.game[hidden]{display:none}.game-head{display:flex;align-items:end;justify-content:space-between;gap:20px;padding-bottom:16px;border-bottom:2px solid var(--ink);margin-bottom:22px}.game-head h2{font-size:29px;margin:0;line-height:1.35}.game-head .english{font-size:12px;letter-spacing:.12em;color:var(--muted);margin:0 0 6px}.tag{font-size:12px;border:1px solid var(--line);padding:4px 10px;white-space:nowrap;background:white}.overview{display:grid;grid-template-columns:1.05fr 1fr;gap:24px;margin-bottom:26px}.visual{background:var(--cyan);border:1px solid #d3e7e4;min-height:310px;display:flex;flex-direction:column;justify-content:center;padding:18px 20px 12px}.visual svg{width:100%;height:auto;max-height:280px;display:block}.caption{text-align:center;font-size:11px;color:var(--muted);margin:6px 0 0}.setup{padding:7px 0}.setup h3{font-size:19px;margin:0 0 15px}.setup ol{list-style:none;padding:0;margin:0;counter-reset:step}.setup li{display:flex;gap:12px;align-items:start;margin-bottom:14px;font-size:14px}.setup li:before{counter-increment:step;content:counter(step,decimal-leading-zero);background:var(--ink);color:white;font-size:11px;font-weight:800;min-width:28px;height:28px;display:grid;place-items:center;margin-top:1px}.hint{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin:16px 0 0}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.step{border:1px solid var(--line);background:white;padding:18px 17px 15px;position:relative}.step .number{font-size:12px;font-weight:800;color:var(--muted)}.step h3{font-size:15px;line-height:1.5;margin:9px 0 8px}.step p{font-size:13px;color:var(--muted);margin:0}.step.green{border-top:4px solid var(--green)}.step.yellow{border-top:4px solid var(--gold)}.step.red{border-top:4px solid var(--red)}.step.neutral{border-top:4px solid var(--teal)}.callout{padding:15px 19px;background:#fff0ec;border-left:5px solid var(--red);font-size:13px;margin-bottom:20px}.callout strong{color:var(--red)}.callout p{margin:4px 0 0}.callout.blue{background:var(--cyan);border-color:var(--teal)}.callout.blue strong{color:var(--ink)}.example{display:flex;gap:18px;align-items:center;padding:18px 22px;background:var(--ink);color:white;margin:0 0 24px}.example .large{font-size:27px;line-height:1.2;font-weight:800;color:var(--gold);white-space:nowrap}.example p{font-size:13px;margin:0;color:#d2e2e1}.example b{color:white}.mini-title{font-size:17px;margin:25px 0 13px}.results{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}.results>div{border:1px solid var(--line);background:white;padding:16px}.results strong{font-size:14px}.results p{font-size:13px;color:var(--muted);margin:7px 0 0}details{background:white;border:1px solid var(--line);margin:10px 0}summary{cursor:pointer;padding:15px 18px;font-size:14px;font-weight:750;display:flex;align-items:center;justify-content:space-between;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:'＋';color:var(--green);font-size:20px;font-weight:400}details[open] summary:after{content:'−'}details[open] summary{border-bottom:1px solid var(--line)}.detail-body{padding:17px 20px;font-size:13px}.detail-body p{margin:0 0 10px}.detail-body p:last-child{margin-bottom:0}.detail-body ul{padding-left:20px;margin:0}.detail-body li{margin:7px 0}.tables{display:grid;grid-template-columns:1fr 1fr;gap:18px}table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line)}th{background:var(--ink);color:white;font-size:12px}td{font-size:13px}tr:nth-child(even) td{background:#f2f6f3}th:last-child,td:last-child{text-align:right;white-space:nowrap}.dice-row{display:flex;gap:8px;justify-content:center;margin:12px 0}.die{width:38px;height:38px;display:grid;place-items:center;background:white;border:2px solid #c7d1cb;border-radius:5px;font-size:25px;color:var(--ink)}.die.selected{border-color:var(--green);transform:translateY(-5px)}.visual-title{font-size:12px;font-weight:800;color:var(--muted);text-align:center;margin:0 0 15px;letter-spacing:.06em}.gesture-cards{display:flex;justify-content:center;gap:10px;margin:12px 0 22px}.card{width:67px;height:92px;background:#fff;border:1px solid #d0dad5;padding:9px;font:800 23px Georgia,serif;box-shadow:3px 3px 0 #d1e3de}.card.red{color:var(--red);transform:rotate(7deg)}.gesture{display:grid;grid-template-columns:1fr 1fr;gap:10px}.gesture>div{background:#fff;text-align:center;padding:12px;font-size:12px}.gesture b{display:block;margin-bottom:4px}.arrows{font-size:29px;font-weight:700;letter-spacing:4px;color:var(--green)}.gesture>div:last-child .arrows{color:var(--red)}.wheel{width:130px;height:130px;border:11px solid #be9c55;border-radius:50%;background:repeating-conic-gradient(#b53e35 0deg 15deg,#162b31 15deg 30deg);margin:5px auto 20px;position:relative}.wheel:before{content:'';position:absolute;inset:27px;border-radius:50%;background:#e9bd47;border:7px solid #162b31}.wheel:after{content:'▼';position:absolute;top:-31px;left:41px;color:var(--ink);font-size:26px}.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.zone{text-align:center;padding:12px 5px;color:white;font-size:13px;font-weight:800;background:var(--red)}.zone.black{background:var(--ink)}.zone.green{background:var(--green)}.zone span{display:block;font-weight:400;font-size:11px;color:#fff}.slot{width:210px;max-width:100%;margin:8px auto 15px;border:8px solid #715538;background:var(--ink);padding:15px;box-shadow:5px 5px 0 #c8d9ce;position:relative}.slot-sign{text-align:center;font-size:17px;font-weight:850;background:#e9bd47;letter-spacing:3px;padding:4px;margin-bottom:15px}.reels{display:flex;gap:5px}.reels span{flex:1;background:#f7efce;font-size:26px;text-align:center;border:3px solid #a08748;color:var(--red)}.slot-out{margin:15px auto 0;height:10px;background:#050d10;width:80px;border:2px solid #9b8050}.slot:after{content:'●';position:absolute;color:var(--red);font-size:37px;right:-30px;top:36px;text-shadow:0 22px #715538}.fountain-note{display:flex;justify-content:center;gap:18px;align-items:center;font-size:13px;font-weight:700}.coin{display:inline-grid;place-items:center;border:4px double var(--gold);border-radius:50%;width:35px;height:35px;background:var(--green);color:white;font-size:13px}.common{margin:35px 0 45px;border-top:2px solid var(--ink);padding-top:23px}.common h2{font-size:21px;margin:0 0 15px}.common-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;font-size:13px;color:var(--muted)}.common-grid h3{font-size:14px;color:var(--ink);margin:0 0 8px}.common-grid p{margin:0}.decoration-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}.decoration-list b{display:block;color:var(--ink);font-size:12px}.decoration-list span{font-size:12px}.footer{border-top:1px solid var(--line);padding:20px 0 28px;font-size:12px;color:var(--muted)}.footer .shell{display:flex;justify-content:space-between;gap:15px}.footer a{text-underline-offset:4px}.skip{position:absolute;top:-80px;left:10px;padding:10px;background:white;color:var(--ink);z-index:10}.skip:focus{top:10px}@media(max-width:850px){.nav{padding:12px 9px;gap:7px}.nav .symbol{font-size:21px}.nav b{font-size:12px}.flow{grid-template-columns:1fr 1fr}.overview{gap:18px}.visual{padding:15px;min-height:280px}}@media(max-width:600px){.shell{width:calc(100% - 28px)}.top{height:58px}.brand{font-size:16px}.edition{font-size:10px}.intro{padding:29px 0 25px}.intro-mark{width:51px;height:51px;border-width:5px;font-size:30px;box-shadow:5px 5px 0 var(--gold)}.lead{font-size:13px}.navigation{grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:28px}.nav{padding:11px;gap:8px}.overview{grid-template-columns:1fr}.game-head h2{font-size:25px}.tag{font-size:10px}.visual{min-height:260px}.setup{padding:0}.flow{gap:9px}.step{padding:13px}.step h3{font-size:14px}.results{grid-template-columns:1fr}.results>div{padding:13px 16px}.tables,.common-grid{grid-template-columns:1fr}.detail-body{padding:14px}.example{padding:15px;gap:13px}.example .large{font-size:22px}.footer .shell{flex-direction:column;gap:5px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}@media print{header,.navigation,.intro-mark,.footer a{display:none}.game[hidden]{display:block}.game{break-before:page}.game:first-of-type{break-before:auto}.overview,.step,.results{break-inside:avoid}.shell{width:100%}body{background:white}.common{margin-bottom:0}}
+@media(max-width:600px){.game-head{align-items:flex-start;flex-direction:column;gap:10px}.game-head h2{font-size:24px}.game-head .tag{font-size:11px}}
+
+/* Screenshot guides use the full content width so embedded labels remain readable. */
+.overview{grid-template-columns:1fr}
+.guide-image{margin:0;min-width:0;background:var(--paper);border:1px solid var(--line)}
+.guide-image>a{display:block}
+.guide-image img{display:block;width:100%;height:auto}
+.guide-image figcaption{padding:7px 14px;text-align:right;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+.guide-image figcaption a{text-underline-offset:3px}
+.setup{max-width:800px}
+@media(max-width:600px){.navigation{grid-template-columns:repeat(2,1fr)}.guide-image figcaption{padding:6px 10px}}
+@media print{.guide-image figcaption{display:none}.guide-image{break-inside:avoid}}
+
+.intro-mark svg{width:100%;height:100%;display:block}
+.payouts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 24px}
+.payout{background:white;border:1px solid var(--line);border-top:4px solid var(--ink);padding:16px}
+.payout strong{display:block;font-size:15px;margin-bottom:7px}
+.payout span{font-size:13px;color:var(--muted)}
+.payout b{font-size:22px;color:var(--ink);white-space:nowrap}
+.payout.red{border-top-color:var(--red)}.payout.red strong{color:var(--red)}
+.payout.green{border-top-color:var(--green)}.payout.green strong{color:var(--green)}
+.payouts>p{grid-column:1/-1;font-size:12px;color:var(--muted);margin:0}
+@media(max-width:600px){.payouts{grid-template-columns:1fr}.payout strong{margin-bottom:3px}}
+
+.header-tools{display:flex;align-items:center;gap:18px}
+.language-switch{display:flex;gap:3px;border:1px solid #53676b;padding:3px;border-radius:4px;white-space:nowrap}
+.language-switch a{font-size:12px;text-decoration:none;color:#c3d9d9;padding:3px 8px;border-radius:2px}
+.language-switch a[aria-current=page]{background:#e9bd47;color:#162b31;font-weight:750}
+.game-head{flex-wrap:wrap}.tables{overflow-x:auto}
+@media(max-width:600px){.header-tools{gap:7px}.header-tools .edition{display:none}.language-switch a{padding:3px 6px;font-size:11px}}
+@media print{.language-switch{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#guide">跳到操作指南</a>
+<header><div class="shell top"><a class="brand" href="#farkle">BET <span>&</span> COIN</a><div class="header-tools"><span class="edition">玩家指南 · 1.0.6</span><nav class="language-switch" aria-label="Language"><a href="zh.html" lang="zh-CN" aria-current="page">中文</a><a href="index.html" lang="en">English</a></nav></div></div></header>
+<main class="shell">
+<div class="intro"><div><p class="eyebrow">PLAYER GUIDE / 玩法指南</p><h1>从第一枚筹码开始。</h1><p class="lead">选一张游戏桌，跟着步骤玩完第一局。详细规则，随时往下查。</p></div><div class="intro-mark" role="img" aria-label="骰子、纸牌与筹码"><svg viewBox="0 0 80 80" aria-hidden="true"><g transform="rotate(-12 49 30)"><rect x="35" y="9" width="28" height="39" rx="3" fill="#f7f8f6"/><path d="M49 17l7 9-7 9-7-9z" fill="#39a8ad"/></g><rect x="11" y="28" width="29" height="29" rx="4" fill="#39a8ad" stroke="#f7f8f6" stroke-width="2"/><g fill="#162b31"><circle cx="18" cy="35" r="2.3"/><circle cx="33" cy="35" r="2.3"/><circle cx="25.5" cy="42.5" r="2.3"/><circle cx="18" cy="50" r="2.3"/><circle cx="33" cy="50" r="2.3"/></g><circle cx="54" cy="56" r="15" fill="#e9bd47" stroke="#162b31" stroke-width="3"/><circle cx="54" cy="56" r="10" fill="none" stroke="#162b31" stroke-width="2" stroke-dasharray="4 3"/><circle cx="54" cy="56" r="4" fill="#162b31"/></svg></div></div>
+<nav class="navigation" aria-label="选择游戏">
+<button class="nav" data-game="farkle" aria-pressed="true" aria-controls="farkle"><span class="symbol" aria-hidden="true">⚄</span><span><b>Farkle</b><small>双人骰子</small></span></button>
+<button class="nav" data-game="blackjack" aria-pressed="false" aria-controls="blackjack"><span class="symbol" aria-hidden="true">♠</span><span><b>Blackjack</b><small>二十一点</small></span></button>
+<button class="nav" data-game="roulette" aria-pressed="false" aria-controls="roulette"><span class="symbol" aria-hidden="true">◉</span><span><b>Roulette</b><small>颜色轮盘</small></span></button>
+<button class="nav" data-game="slot" aria-pressed="false" aria-controls="slot"><span class="symbol" aria-hidden="true">≡</span><span><b>Slot Machine</b><small>老虎机</small></span></button>
+</nav>
+<div id="guide">
+<section class="game" id="farkle" aria-labelledby="farkle-title">
+<div class="game-head"><div><p class="english">FARKLE TABLE</p><h2 id="farkle-title">掷骰、留分，再决定冒不冒险。</h2></div><span class="tag">2 人 · 先到 10,000 分</span></div>
+<div class="overview"><figure class="guide-image"><img src="assets/farkle-annotated-v4-unified.png" alt="Farkle 游戏桌：下注筹码、右键选骰，以及绿色提交、黄色重掷、红色收分按钮。" decoding="async"></figure>
+<div class="setup"><h3>先约好下注，再开始。</h3><ol><li>两人站在相对的两侧，准备同一种筹码。</li><li>手持筹码右键桌面，每次投入 1 枚，每侧最多 5 枚。</li><li>双方面额与数量一致后，等待约 2 秒，游戏自动开始。</li><li>随机决定先手，并自动掷出 6 颗骰子。切换空手，开始操作。</li></ol><p class="hint">计分器只显示已存入的总分。本回合暂存分，需要自己记住。</p></div></div>
+<div class="flow"><article class="step neutral"><span class="number">01 / 选择</span><h3>右键得分骰子</h3><p>选中的骰子升起。再次右键可以取消；所选骰子必须全部能计分。</p></article><article class="step green"><span class="number">02 / 绿色</span><h3>提交，暂存得分</h3><p>得分骰子移到白框。本回合分数增加，但还没存进计分器。</p></article><article class="step yellow"><span class="number">03 / 黄色</span><h3>重掷，继续冒险</h3><p>掷剩余骰子。先提交或取消当前选择；全部 6 颗已得分时可掷全套。</p></article><article class="step red"><span class="number">04 / 红色</span><h3>收分，交给对手</h3><p>暂存分收入总分，结束回合。对手的第一掷自动进行。</p></article></div>
+<div class="callout"><strong>没有得分骰子？本回合暂存分全部失去。</strong><p>这就是 Farkle。已经存入计分器的总分保留，自动换对手行动。每次掷骰至少提交一次，才能重掷或收分。</p></div>
+<div class="results"><div><strong>先到 10,000 分，立即获胜</strong><p>按红色收分后判断胜负，不必刚好达到目标，也没有最后追分回合。</p></div><div><strong>双方下注，都归胜者</strong><p>胜方数字闪烁约 3 秒，随后筹码发到背包，溢出部分掉在胜者身边。</p></div><div><strong>两人离开，再开下一局</strong><p>结果保留供查看。双方都离开桌旁后重置，不会自动续注。</p></div></div>
+<details><summary>查看完整计分表</summary><div class="detail-body"><div class="tables"><table><thead><tr><th>骰子组合</th><th>分数</th></tr></thead><tbody><tr><td>单颗 1</td><td>100</td></tr><tr><td>单颗 5</td><td>50</td></tr><tr><td>三颗 1</td><td>300</td></tr><tr><td>三颗 2 / 3 / 4</td><td>200 / 300 / 400</td></tr><tr><td>三颗 5 / 6</td><td>500 / 600</td></tr></tbody></table><table><thead><tr><th>骰子组合</th><th>分数</th></tr></thead><tbody><tr><td>四 / 五 / 六颗相同</td><td>1,000 / 2,000 / 3,000</td></tr><tr><td>1～6 顺子</td><td>1,500</td></tr><tr><td>三对不同点数</td><td>1,500</td></tr><tr><td>四颗相同 + 一对</td><td>1,500</td></tr><tr><td>两组三条</td><td>2,500</td></tr></tbody></table></div><p style="margin-top:16px">每次提交独立计分，系统取最高合法分数。先分开提交三个 5，不能事后合并成三条；不同次掷出的骰子也不能拼成组合。<b>本模组三个 1 为 300 分。</b></p></div></details>
+<details><summary>离席、掉线或拆桌，会怎样？</summary><div class="detail-body"><ul><li>未开局或开局闪烁时离席：退回自己的下注。</li><li>掷骰开始后离席、死亡、掉线或换维度：对手获胜。距桌中心超过 5 格视为离席，不保留重连席位。</li><li>同一次检查双方都离席，且胜者未确定：取消对局，各退各的筹码。</li><li>拆桌时胜者尚未确定：各退本金；已经确定胜者：双方筹码仍归胜者。</li><li>领取者离线时，筹码掉在桌子附近。没有操作超时，仍在桌边但不操作会继续等待。</li></ul></div></details>
+</section>
+<section class="game" id="blackjack" aria-labelledby="blackjack-title">
+<div class="game-head"><div><p class="english">BLACKJACK TABLE</p><h2 id="blackjack-title">接近 21 点，别超过它。</h2></div><span class="tag">1～3 人 · 对抗荷官</span></div>
+<div class="overview"><figure class="guide-image"><img src="assets/blackjack-annotated-v4-unified.png" alt="二十一点：手持筹码右键下注，上下移动鼠标点头要牌，左右移动鼠标摇头停牌。" decoding="async"></figure>
+<div class="setup"><h3>选一个空栏位，投入一枚。</h3><ol><li>站在桌子正面的左、中、右任一空栏位附近。</li><li>手持筹码右键该栏位，扣除 1 枚，自动开始。</li><li>开场动画期间加入可参加本局；之后加入预付下一局。</li><li>观察纸牌，按左、中、右顺序行动；只在自己的回合做手势。</li></ol><p class="hint">每人独立与荷官比较。同一玩家只能占一个 Blackjack 栏位。</p></div></div>
+<div class="flow"><article class="step neutral"><span class="number">01 / 发牌</span><h3>先看两张起手牌</h3><p>玩家两张明牌；荷官一明一暗。A 可作 1 或 11，J、Q、K 为 10。</p></article><article class="step green"><span class="number">02 / 要牌</span><h3>点头，再拿一张</h3><p>等待发牌动画结束再操作。21 点自动停牌，超过 21 点爆牌。</p></article><article class="step red"><span class="number">03 / 停牌</span><h3>摇头，结束行动</h3><p>轮到下一位玩家。所有人结束后，荷官翻开暗牌。</p></article><article class="step yellow"><span class="number">04 / 比较</span><h3>荷官补牌并结算</h3><p>荷官低于 17 继续补牌，17 及以上停牌，包括软 17。</p></article></div>
+<div class="results"><div><strong>获胜 → 总返还 2 枚</strong><p>自己没爆牌，点数高于荷官，或荷官爆牌。返还包含本金。</p></div><div><strong>平局 → 退回 1 枚</strong><p>自己没爆牌，与荷官点数相同。起手 21 没有特殊奖励。</p></div><div><strong>失败 → 不返还</strong><p>自己爆牌、点数较低或中途弃权，失去本局下注。</p></div></div>
+<div class="callout"><strong>清桌后会自动扣筹码，继续下一局。</strong><p>从背包扣一枚与最初下注相同种类的筹码。没匹配筹码会离席。不想继续，派奖后及时离开自己的栏位附近。</p></div>
+<details><summary>手势没反应？查看操作细节</summary><div class="detail-body"><p>轮到自己时，试着把鼠标晃动幅度加大一些，连贯地做出点头或摇头动作。</p></div></details>
+<details><summary>离席、掉线或拆桌，会怎样？</summary><div class="detail-body"><p>距自己栏位中心超过 2 格或换维度视为离席，掉线立即释放已加载桌子的席位。开场期间、下一局等待期间及候场预付款可退款；进入准备发牌阶段后到实际派奖前离席，当前局按弃权处理。</p><p>拆桌时退回未结算下注和下一局预付款，已经结算的不再退款；领取者离线时退款掉在栏位附近。</p></div></details>
+</section>
+<section class="game" id="roulette" aria-labelledby="roulette-title">
+<div class="game-head"><div><p class="english">ROULETTE TABLE</p><h2 id="roulette-title">押一种颜色，等轮盘停下。</h2></div><span class="tag">1 人或多人 · 颜色下注</span></div>
+<div class="overview"><figure class="guide-image"><img src="assets/roulette-annotated-v5-front.png" alt="轮盘桌：手持筹码右键下注区，轮盘区闪烁显示开奖结果。" decoding="async"></figure>
+<div class="setup"><h3>手持筹码，对准颜色区。</h3><ol><li>从桌面上方右键红、黑或绿，每次下注 1 枚。</li><li>第一笔下注开启 5 秒下注窗口，后续加注不延长时间。</li><li>可以加注、押多个颜色，或分别使用两种筹码。</li><li>窗口结束自动开奖，转动和结果等待阶段不能下注。</li></ol><p class="hint">每个颜色区最多显示 5 枚，实际下注可以更多。显示筹码不等于下注上限。</p></div></div>
+<div class="flow"><article class="step neutral"><span class="number">01 / 下注</span><h3>5 秒内选颜色</h3><p>多人可以参加同一轮，各人的颜色和筹码分别计算。</p></article><article class="step green"><span class="number">02 / 转动</span><h3>等待约 8 秒</h3><p>轮盘自动转动并减速。此时下注已经锁定。</p></article><article class="step yellow"><span class="number">03 / 停下</span><h3>看最终亮起的颜色</h3><p>结果闪烁展示约 2 秒，然后支付押中的筹码。</p></article><article class="step red"><span class="number">04 / 再来</span><h3>下一笔注开启新局</h3><p>结算后的桌面筹码只是记录，不能再次领取。</p></article></div>
+<div class="payouts" aria-label="轮盘中奖返还"><div class="payout red"><strong>押中红色</strong><span>每下注 1 枚，拿回 <b>2 枚</b></span></div><div class="payout black"><strong>押中黑色</strong><span>每下注 1 枚，拿回 <b>2 枚</b></span></div><div class="payout green"><strong>押中绿色</strong><span>每下注 1 枚，拿回 <b>10 枚</b></span></div><p>拿回的筹码与下注面额相同，数量包含本金；没有押中则不返还。</p></div>
+<details><summary>概率与下注规则</summary><div class="detail-body"><p>68 格等概率：33 红、33 黑、2 绿。红黑各 33/68，绿为 2/68。仅支持颜色下注，没有数字、奇偶、大小下注。</p><p>同一玩家同一颜色同种筹码最多累计 4,096 枚，全桌最多 256 条下注记录。结算后所有下注者离开 6 格范围时自动清桌。</p></div></details>
+<details><summary>离席、掉线或拆桌，会怎样？</summary><div class="detail-body"><p>下注窗口内离席、死亡、掉线或换维度会取消下注并退还，每秒检查一次；距桌中心超过 6 格为离席。开始转动后离开不会取消，照常按结果结算。</p><p>离线奖励或退款暂存在该桌，桌子加载时会在玩家上线后发放。下注阶段拆桌退本金；转动后拆桌按已选定的颜色结算。拆桌时尚未领取的离线筹码掉在桌子附近。</p></div></details>
+</section>
+<section class="game" id="slot" aria-labelledby="slot-title">
+<div class="game-head"><div><p class="english">SLOT MACHINE</p><h2 id="slot-title">三个相同图案，就是中奖。</h2></div><span class="tag">单次启动 · 手动续局</span></div>
+<div class="overview"><figure class="guide-image"><img src="assets/slot-annotated-v4-unified.png" alt="老虎机：手持筹码，右键拉杆。" decoding="async"></figure>
+<div class="setup"><h3>手持一枚筹码，右键启动。</h3><ol><li>5 或 20 筹码都可使用，点击上半部或下半部即可。</li><li>左、中、右转子依次停止，总过程约 3.5 秒。</li><li>三个相同图案，灯牌亮起，吐出两枚同面额筹码。</li></ol><p class="hint">旋转中再次右键不会重复扣注。结束后再右键开始下一次。</p></div></div>
+<div class="results"><div><strong>四种图案，奖励相同</strong><p>苹果、金锭、绿宝石、钻石；三个同图案均返还两枚筹码，不发图案对应物品。</p></div><div><strong>总返还 2 枚，净赢 1 枚</strong><p>各转子独立等概率，中奖概率 1/16。图案不同没有返还。</p></div><div><strong>到机器正面拾取</strong><p>奖励直接掉落，可由附近玩家拾取，不自动存入背包。</p></div></div>
+<details><summary>离开或拆掉机器，会怎样？</summary><div class="detail-body"><p>启动后不记录玩家席位，离开或掉线不取消旋转。旋转中拆掉任一半部，按已经抽出的结果立即结算：中奖吐出两枚，没中奖不退款。</p></div></details>
+</section>
+</div>
+</main>
+<footer class="footer"><div class="shell"><span>Bet & Coin · AkagiMiso · MIT License</span><span>中文指南初版 · Minecraft 1.16.5 / Forge · <a href="#guide">返回当前指南 ↑</a></span></div></footer>
+<script>
+(() => {
+const controls = [...document.querySelectorAll('[data-game]')];
+const panels = [...document.querySelectorAll('.game')];
+function select(id) {
+  if (!panels.some(panel => panel.id === id)) id = 'farkle';
+  panels.forEach(panel => panel.hidden = panel.id !== id);
+  controls.forEach(control => control.setAttribute('aria-pressed', String(control.dataset.game === id)));
+}
+controls.forEach(control => control.addEventListener('click', () => {
+  select(control.dataset.game);
+  history.replaceState(null, '', '#' + control.dataset.game);
+}));
+window.addEventListener('hashchange', () => { if (panels.some(panel => '#' + panel.id === location.hash)) select(location.hash.slice(1));
+document.querySelectorAll('.language-switch a').forEach(link => {
+  link.addEventListener('click', () => {
+    const active = panels.find(panel => !panel.hidden);
+    link.hash = active ? active.id : 'farkle';
+  });
+}); });
+select(location.hash.slice(1));
+document.querySelectorAll('.language-switch a').forEach(link => {
+  link.addEventListener('click', () => {
+    const active = panels.find(panel => !panel.hidden);
+    link.hash = active ? active.id : 'farkle';
+  });
+});
+})();
+</script>
+</body>
+</html>

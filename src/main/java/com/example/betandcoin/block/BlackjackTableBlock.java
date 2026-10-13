@@ -1,5 +1,7 @@
 package com.example.betandcoin.block;
 
+import net.minecraft.block.material.PushReaction;
+
 import com.example.betandcoin.block.BlackjackTablePartBlock.TablePart;
 import com.example.betandcoin.registry.ModBlocks;
 import com.example.betandcoin.registry.ModTileEntities;
@@ -23,6 +25,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class BlackjackTableBlock extends HorizontalBlock {
+
+    @Override
+    public PushReaction getPistonPushReaction(BlockState state) {
+        return PushReaction.BLOCK;
+    }
 
     public static final DirectionProperty FACING =
             HorizontalBlock.FACING;
@@ -54,11 +61,14 @@ public class BlackjackTableBlock extends HorizontalBlock {
         BlockPos mainPos = context.getClickedPos();
         World world = context.getLevel();
 
+        if (!world.getWorldBorder().isWithinBounds(mainPos)) return null;
+
         for (TablePart part : TablePart.values()) {
             BlockPos partPos =
                     getPartBlockPos(mainPos, facing, part);
 
-            if (!world.getBlockState(partPos)
+            if (!world.getWorldBorder().isWithinBounds(partPos)
+                    || !world.getBlockState(partPos)
                     .getMaterial()
                     .isReplaceable()) {
                 return null;
@@ -130,8 +140,7 @@ public class BlackjackTableBlock extends HorizontalBlock {
                 BlackjackTableTileEntity blackjackTable =
                         (BlackjackTableTileEntity) tileEntity;
 
-                blackjackTable.clearBlackjackCardEntities();
-                blackjackTable.clearBlackjackChipEntities();
+                blackjackTable.releaseStakesOnBreak();
             }
 
             Direction facing = state.getValue(FACING);

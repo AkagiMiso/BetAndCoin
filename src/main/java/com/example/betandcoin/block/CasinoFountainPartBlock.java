@@ -1,5 +1,8 @@
 package com.example.betandcoin.block;
 
+import net.minecraft.block.material.PushReaction;
+import net.minecraft.entity.player.PlayerEntity;
+
 import com.example.betandcoin.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
@@ -29,6 +32,11 @@ import javax.annotation.Nonnull;
  * 避免玩家在视觉模型之外被“空气墙”卡住。
  */
 public class CasinoFountainPartBlock extends HorizontalBlock {
+
+    @Override
+    public PushReaction getPistonPushReaction(BlockState state) {
+        return PushReaction.BLOCK;
+    }
 
     public static final DirectionProperty FACING =
             HorizontalBlock.FACING;
@@ -103,6 +111,18 @@ public class CasinoFountainPartBlock extends HorizontalBlock {
                 part.getLocalZ(),
                 state.getValue(FACING)
         );
+    }
+
+    @Override
+    public void playerWillDestroy(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        // Remove the main block before this cell so its callback cannot create creative drops.
+        if (!world.isClientSide && player.isCreative()) {
+            BlockPos main = getMainBlockPos(pos, state);
+            if (world.getBlockState(main).is(ModBlocks.CASINO_FOUNTAIN.get())) {
+                world.destroyBlock(main, false);
+            }
+        }
+        super.playerWillDestroy(world, pos, state, player);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.betandcoin.registry;
 
 import com.example.betandcoin.BetAndCoin;
+import com.example.betandcoin.tileentity.RouletteTableTileEntity;
 import com.example.betandcoin.tileentity.BarNeonSignTileEntity;
 import com.example.betandcoin.tileentity.BarTableClutterTileEntity;
 import com.example.betandcoin.tileentity.BlackjackTableTileEntity;
@@ -8,6 +9,7 @@ import com.example.betandcoin.tileentity.CardDeckTileEntity;
 import com.example.betandcoin.tileentity.CasinoFarkleTableTileEntity;
 import com.example.betandcoin.tileentity.CasinoFountainTileEntity;
 import com.example.betandcoin.tileentity.SlotMachineTileEntity;
+import com.example.betandcoin.tileentity.ReceptionPodiumTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -61,6 +63,11 @@ public final class ModTileEntities {
                             ModBlocks.BAR_NEON_SIGN.get()
                     ).build(null));
 
+    public static final RegistryObject<TileEntityType<ReceptionPodiumTileEntity>> RECEPTION_PODIUM =
+            TILE_ENTITIES.register("reception_podium",
+                    () -> TileEntityType.Builder.of(ReceptionPodiumTileEntity::new,
+                            ModBlocks.RECEPTION_PODIUM.get()).build(null));
+
     public static final RegistryObject<TileEntityType<BarTableClutterTileEntity>> BAR_TABLE_CLUTTER =
             TILE_ENTITIES.register("bar_table_clutter",
                     () -> TileEntityType.Builder.of(
@@ -75,6 +82,10 @@ public final class ModTileEntities {
                             CasinoFarkleTableTileEntity::new,
                             ModBlocks.CASINO_FARKLE_TABLE.get()
                     ).build(null));
+
+    public static final RegistryObject<TileEntityType<RouletteTableTileEntity>> ROULETTE_TABLE =
+            TILE_ENTITIES.register("roulette_table", () -> TileEntityType.Builder.of(
+                    RouletteTableTileEntity::new, ModBlocks.ROULETTE_TABLE.get()).build(null));
 
     private ModTileEntities() {
     }

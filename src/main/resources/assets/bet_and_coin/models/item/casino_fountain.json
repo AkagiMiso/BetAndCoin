@@ -2,5 +2,8 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "bet_and_coin:item/casino_fountain_item"
-  }
+  },
+  "display": {
+    "thirdperson_lefthand": {"rotation": [75, 45, 0], "translation": [-0.0, 2.5, 0.0], "scale": [0.375, 0.375, 0.375]},
+    "thirdperson_righthand": {"rotation": [75, 45, 0], "translation": [0.0, 2.5, 0.0], "scale": [0.375, 0.375, 0.375]},"gui": {"rotation": [0, 0, 0], "translation": [-0.0, -0.0, 0], "scale": [0.875, 0.875, 0.875]}}
 }

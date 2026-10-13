@@ -1,11 +1,12 @@
 modLoader="javafml"
 loaderVersion="[36,)"
-license="All Rights Reserved"
+license="MIT"
 
 [[mods]]
 modId="bet_and_coin"
 version="${file.jarVersion}"
 displayName="Bet & Coin"
+logoFile="bet_and_coin_icon.png"
 authors="AkagiMiso"
 description='''
 Adds casino games, machines, furniture, cards, chips, and related decorative content.
@@ -23,4 +24,11 @@ modId="minecraft"
 mandatory=true
 versionRange="[1.16.5,1.17)"
 ordering="NONE"
+side="BOTH"
+
+[[dependencies.bet_and_coin]]
+modId="geckolib3"
+mandatory=true
+versionRange="[3.0.106,3.0.107)"
+ordering="AFTER"
 side="BOTH"

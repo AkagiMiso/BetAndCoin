@@ -7,7 +7,7 @@ import net.minecraftforge.fml.network.simple.SimpleChannel;
 
 public final class ModNetwork {
 
-    private static final String PROTOCOL_VERSION = "1";
+    private static final String PROTOCOL_VERSION = "2";
 
     public static final SimpleChannel CHANNEL =
             NetworkRegistry.newSimpleChannel(

@@ -1,0 +1,107 @@
+{
+  "format_version": "1.9.0",
+  "credit": "Made with Blockbench",
+  "texture_size": [
+    128,
+    128
+  ],
+  "textures": {
+    "0": "bet_and_coin:block/roulette_table_glow_red",
+    "particle": "bet_and_coin:block/roulette_table_glow_red"
+  },
+  "elements": [
+    {
+      "name": "发光层",
+      "from": [
+        12,
+        13.51,
+        18
+      ],
+      "to": [
+        12.5,
+        13.51,
+        18.5
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          10.5,
+          13.51,
+          16.5
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            8.8125,
+            0.9375,
+            8.875,
+            0.9375
+          ],
+          "texture": "#0"
+        },
+        "east": {
+          "uv": [
+            8.8125,
+            0.9375,
+            8.875,
+            0.9375
+          ],
+          "texture": "#0"
+        },
+        "south": {
+          "uv": [
+            8.8125,
+            0.9375,
+            8.875,
+            0.9375
+          ],
+          "texture": "#0"
+        },
+        "west": {
+          "uv": [
+            8.8125,
+            0.9375,
+            8.875,
+            0.9375
+          ],
+          "texture": "#0"
+        },
+        "up": {
+          "uv": [
+            8.8125,
+            0.8125,
+            8.875,
+            0.875
+          ],
+          "texture": "#0"
+        },
+        "down": {
+          "uv": [
+            8.8125,
+            0.75,
+            8.875,
+            0.8125
+          ],
+          "texture": "#0"
+        }
+      }
+    }
+  ],
+  "groups": [
+    {
+      "name": "发光层",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "scope": 0,
+      "color": 0,
+      "children": [
+        0
+      ]
+    }
+  ]
+}

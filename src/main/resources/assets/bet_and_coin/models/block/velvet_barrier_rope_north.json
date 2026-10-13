@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "0": "bet_and_coin:block/velvet_barrier",
+    "particle": "bet_and_coin:block/velvet_barrier"
+  },
+  "elements": [
+    {
+      "from": [
+        7.875,
+        14,
+        0
+      ],
+      "to": [
+        8.125,
+        15,
+        7.25
+      ],
+      "rotation": {
+        "angle": 0,
+        "axis": "y",
+        "origin": [
+          8,
+          14.25,
+          8
+        ]
+      },
+      "faces": {
+        "north": {
+          "uv": [
+            2.5,
+            8,
+            2.625,
+            8.5
+          ],
+          "texture": "#0"
+        },
+        "east": {
+          "uv": [
+            4,
+            3,
+            7.625,
+            3.5
+          ],
+          "texture": "#0"
+        },
+        "south": {
+          "uv": [
+            3,
+            8,
+            3.125,
+            8.5
+          ],
+          "texture": "#0"
+        },
+        "west": {
+          "uv": [
+            4,
+            3.5,
+            7.625,
+            4
+          ],
+          "texture": "#0"
+        },
+        "up": {
+          "uv": [
+            7,
+            5.5,
+            7.125,
+            9.125
+          ],
+          "texture": "#0"
+        },
+        "down": {
+          "uv": [
+            4,
+            7.5,
+            4.125,
+            11.125
+          ],
+          "texture": "#0"
+        }
+      }
+    }
+  ]
+}

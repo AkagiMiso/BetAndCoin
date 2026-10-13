@@ -1,12 +1,14 @@
 package com.example.betandcoin.client;
 
 import com.example.betandcoin.BetAndCoin;
+import com.example.betandcoin.client.renderer.RouletteTableRenderer;
 import com.example.betandcoin.client.renderer.BarNeonSignRenderer;
 import com.example.betandcoin.client.renderer.BarTableClutterRenderer;
 import com.example.betandcoin.client.renderer.BlackjackTableRenderer;
 import com.example.betandcoin.client.renderer.CasinoFarkleTableRenderer;
 import com.example.betandcoin.client.renderer.CasinoFountainRenderer;
 import com.example.betandcoin.client.renderer.SlotMachineTileEntityRenderer;
+import com.example.betandcoin.client.renderer.ReceptionPodiumRenderer;
 import com.example.betandcoin.registry.ModBlocks;
 import com.example.betandcoin.registry.ModTileEntities;
 
@@ -65,6 +67,9 @@ public final class ClientModEvents {
                     "block/bar_neon_sign_glow"
             );
 
+    public static final ResourceLocation RECEPTION_PODIUM_GLOW_MODEL =
+            new ResourceLocation(BetAndCoin.MOD_ID, "block/reception_podium_glow");
+
 
     public static final ResourceLocation[] BAR_TABLE_CLUTTER_MODELS =
             new ResourceLocation[8];
@@ -92,6 +97,10 @@ public final class ClientModEvents {
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
 
+        ModelLoader.addSpecialModel(RouletteTableRenderer.MAIN);
+        ModelLoader.addSpecialModel(RouletteTableRenderer.FRAME_45);
+        for (ResourceLocation glow : RouletteTableRenderer.GLOW) ModelLoader.addSpecialModel(glow);
+
         ModelLoader.addSpecialModel(SIGN_OFF_MODEL);
         ModelLoader.addSpecialModel(SIGN_ON_MODEL);
         ModelLoader.addSpecialModel(REEL_MODEL);
@@ -100,6 +109,7 @@ public final class ClientModEvents {
         ModelLoader.addSpecialModel(
                 BAR_NEON_SIGN_GLOW_MODEL
         );
+        ModelLoader.addSpecialModel(RECEPTION_PODIUM_GLOW_MODEL);
 
 
         for (int i = 0; i < 8; i++) {
@@ -162,6 +172,8 @@ public final class ClientModEvents {
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event) {
 
+        ClientRegistry.bindTileEntityRenderer(ModTileEntities.ROULETTE_TABLE.get(), RouletteTableRenderer::new);
+
 
         event.enqueueWork(() ->
                 RenderTypeLookup.setRenderLayer(
@@ -169,6 +181,9 @@ public final class ClientModEvents {
                         RenderType.cutout()
                 )
         );
+
+        event.enqueueWork(() -> RenderTypeLookup.setRenderLayer(
+                ModBlocks.RECEPTION_PODIUM.get(), RenderType.cutout()));
 
 
         event.enqueueWork(() ->
@@ -200,6 +215,11 @@ public final class ClientModEvents {
         ClientRegistry.bindTileEntityRenderer(
                 ModTileEntities.BAR_NEON_SIGN.get(),
                 BarNeonSignRenderer::new
+        );
+
+        ClientRegistry.bindTileEntityRenderer(
+                ModTileEntities.RECEPTION_PODIUM.get(),
+                ReceptionPodiumRenderer::new
         );
 
 

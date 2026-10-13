@@ -170,9 +170,7 @@ public class SlotMachineTileEntity
                 && !level.isClientSide
                 && spinTicks >= RIGHT_STOP_TICK) {
 
-            spinning = false;
-            signLit = leftReel == middleReel
-                    && middleReel == rightReel;
+            ItemStack reward = takeSpinReward();
 
             if (signLit) {
                 level.playSound(
@@ -184,11 +182,8 @@ public class SlotMachineTileEntity
                         1.0F
                 );
 
-                dispenseReward();
+                dispenseReward(reward, getBlockState());
             }
-
-            // 输赢结算后都清除本次下注。
-            currentBet = ItemStack.EMPTY;
 
             markChangedAndSync();
         }
@@ -197,16 +192,12 @@ public class SlotMachineTileEntity
     /**
      * 中奖时从老虎机正面吐出两个同类型筹码。
      */
-    private void dispenseReward() {
-        if (level == null || currentBet.isEmpty()) {
+    private void dispenseReward(ItemStack reward, BlockState machineState) {
+        if (level == null || level.isClientSide || reward.isEmpty()) {
             return;
         }
 
-        ItemStack reward = currentBet.copy();
-        reward.setCount(2);
-
-        BlockState state = getBlockState();
-        Direction facing = state.getValue(SlotMachineBlock.FACING);
+        Direction facing = machineState.getValue(SlotMachineBlock.FACING);
 
         double spawnX =
                 worldPosition.getX() + 0.5D
@@ -231,6 +222,28 @@ public class SlotMachineTileEntity
         );
 
         level.addFreshEntity(itemEntity);
+    }
+
+    /** Settle the already drawn result before removing the lower half of the machine. */
+    public void settleOnRemoval(BlockState oldState) {
+        if (level == null || level.isClientSide) return;
+        ItemStack reward = takeSpinReward();
+        dispenseReward(reward, oldState);
+        setChanged();
+    }
+
+    /** Consume the wager before creating any reward entity, for tick and removal alike. */
+    private ItemStack takeSpinReward() {
+        if (!spinning) return ItemStack.EMPTY;
+        spinning = false;
+        signLit = leftReel == middleReel && middleReel == rightReel;
+        ItemStack reward = ItemStack.EMPTY;
+        if (signLit && !currentBet.isEmpty()) {
+            reward = currentBet.copy();
+            reward.setCount(2);
+        }
+        currentBet = ItemStack.EMPTY;
+        return reward;
     }
 
     public void setReelResults(int left, int middle, int right) {

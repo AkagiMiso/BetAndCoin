@@ -1,6 +1,7 @@
 package com.example.betandcoin.tileentity;
 
 import com.example.betandcoin.block.BlackjackTableBlock;
+import com.example.betandcoin.util.ChipDelivery;
 import com.example.betandcoin.game.blackjack.CardRank;
 import com.example.betandcoin.game.blackjack.CardSuit;
 import com.example.betandcoin.game.blackjack.Deck;
@@ -10,6 +11,7 @@ import com.example.betandcoin.game.blackjack.PlayingCard;
 import com.example.betandcoin.registry.ModEntityTypes;
 import com.example.betandcoin.registry.ModItems;
 import com.example.betandcoin.network.BlackjackSessionPacket;
+import com.example.betandcoin.util.BlackjackSeats;
 import com.example.betandcoin.network.ModNetwork;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.item.ItemEntity;
@@ -214,6 +216,7 @@ public class BlackjackTableTileEntity
             new RoundResult[SLOT_COUNT];
 
     private boolean roundSettlementApplied = false;
+    private boolean removing = false;
     private int chipEntityCheckTicker = 0;
 
     @SuppressWarnings("unchecked")
@@ -305,6 +308,7 @@ public class BlackjackTableTileEntity
                 || this.phase == Phase.SESSION_CLEARING
                 || this.activeSlots[slotIndex]
                 || findPlayerSlot(player.getUUID()) >= 0
+                || BlackjackSeats.hasSeat(player.getServer(), player.getUUID())
                 || !isValidBlackjackChip(heldChip)
                 || heldChip.isEmpty()) {
             return false;
@@ -596,7 +600,8 @@ public class BlackjackTableTileEntity
     @Override
     public void tick() {
         if (this.level == null
-                || this.level.isClientSide) {
+                || this.level.isClientSide
+                || this.removing) {
             return;
         }
 
@@ -702,6 +707,15 @@ public class BlackjackTableTileEntity
         resetRoundOnly();
         resetAndShuffleDeck();
 
+        // Keep the locked roster, but remove players who left during deal_prepare.
+        // resetRoundOnly clears their forfeiture flags, so ownership and wager
+        // state must still be checked before any seat can receive cards.
+        for (int slotIndex = 0; slotIndex < SLOT_COUNT; slotIndex++) {
+            this.roundParticipants[slotIndex] = this.roundParticipants[slotIndex]
+                    && this.activeSlots[slotIndex]
+                    && this.wagerStates[slotIndex] == WagerState.CURRENT_ROUND;
+        }
+
         this.phase = Phase.DEALING;
         this.dealingStep = 0;
         this.dealingTicker = 0;
@@ -723,7 +737,7 @@ public class BlackjackTableTileEntity
      */
     private void beginCurrentInitialDealAction() {
         while (this.dealingStep < SLOT_COUNT
-                && !this.roundParticipants[this.dealingStep]) {
+                && !canDealToPlayer(this.dealingStep)) {
             this.dealingStep++;
         }
 
@@ -780,24 +794,18 @@ public class BlackjackTableTileEntity
                 >= INITIAL_DEAL_CARD_SPAWN_TICK) {
 
             if (this.dealingStep < SLOT_COUNT) {
-                PlayingCard firstCard = drawCard();
-                PlayingCard secondCard = drawCard();
+                // The seat can leave or be occupied by a next-round candidate
+                // after the animation starts, before its landing keyframe.
+                if (canDealToPlayer(this.dealingStep)) {
+                    PlayingCard firstCard = drawCard();
+                    PlayingCard secondCard = drawCard();
 
-                this.playerHands[this.dealingStep]
-                        .add(firstCard);
-                this.playerHands[this.dealingStep]
-                        .add(secondCard);
+                    this.playerHands[this.dealingStep].add(firstCard);
+                    this.playerHands[this.dealingStep].add(secondCard);
 
-                spawnPlayerCardEntity(
-                        this.dealingStep,
-                        firstCard,
-                        0
-                );
-                spawnPlayerCardEntity(
-                        this.dealingStep,
-                        secondCard,
-                        1
-                );
+                    spawnPlayerCardEntity(this.dealingStep, firstCard, 0);
+                    spawnPlayerCardEntity(this.dealingStep, secondCard, 1);
+                }
             } else {
                 PlayingCard dealerUpCard = drawCard();
                 PlayingCard dealerHoleCard = drawCard();
@@ -842,6 +850,14 @@ public class BlackjackTableTileEntity
         this.phase = Phase.MAGIC_CARD_TO_DECK;
         this.phaseTicker = MAGIC_CARD_TO_DECK_DURATION_TICKS;
         playAnimation(ANIMATION_MAGIC_CARD_TO_DECK, false);
+    }
+
+    private boolean canDealToPlayer(int slotIndex) {
+        return isValidSlot(slotIndex)
+                && this.roundParticipants[slotIndex]
+                && this.activeSlots[slotIndex]
+                && this.wagerStates[slotIndex] == WagerState.CURRENT_ROUND
+                && !this.playerForfeited[slotIndex];
     }
 
     private void tickMagicCardToDeck() {
@@ -1268,13 +1284,7 @@ public class BlackjackTableTileEntity
             return;
         }
 
-        player.inventory.add(payout);
-
-        if (!payout.isEmpty()) {
-            player.drop(payout, false);
-        }
-
-        player.inventory.setChanged();
+        ChipDelivery.give(player, payout);
     }
 
     private int findNextWinnerSlot(int afterSlot) {
@@ -1466,6 +1476,52 @@ public class BlackjackTableTileEntity
         clearOccupiedSlot(slotIndex);
     }
 
+    /** Cancel a removed table, refund unsettled reservations once and close all sessions. */
+    public void releaseStakesOnBreak() {
+        if (this.level == null || this.level.isClientSide || this.removing) return;
+        this.removing = true;
+
+        ServerPlayerEntity[] players = new ServerPlayerEntity[SLOT_COUNT];
+        for (int slot = 0; slot < SLOT_COUNT; slot++) players[slot] = getServerPlayer(slot);
+        ItemStack[] refunds = takeBreakRefunds();
+        for (int slot = 0; slot < SLOT_COUNT; slot++) {
+            if (players[slot] != null) clearClientSession(players[slot]);
+            if (!refunds[slot].isEmpty()) {
+                if (players[slot] != null) ChipDelivery.give(players[slot], refunds[slot]);
+                else dropChipAtSlot(slot, refunds[slot]);
+            }
+        }
+
+        clearBlackjackCardEntities();
+        clearBlackjackChipEntities();
+        Arrays.fill(this.activeSlots, false);
+        Arrays.fill(this.roundParticipants, false);
+        Arrays.fill(this.slotPlayers, null);
+        resetRoundOnly();
+        this.remainingCards.clear();
+        this.phase = Phase.WAITING;
+        this.phaseTicker = 0;
+        this.roundRosterLocked = false;
+        setChanged();
+    }
+
+    /** Consume the refund ledger before delivery, including next-round prepaid seats. */
+    private ItemStack[] takeBreakRefunds() {
+        ItemStack[] refunds = new ItemStack[SLOT_COUNT];
+        Arrays.fill(refunds, ItemStack.EMPTY);
+        for (int slot = 0; slot < SLOT_COUNT; slot++) {
+            if (this.wagerStates[slot] == WagerState.NEXT_ROUND_PREPAID
+                    || this.wagerStates[slot] == WagerState.CURRENT_ROUND
+                    && !this.roundSettlementApplied) {
+                refunds[slot] = this.sessionBetStacks[slot].copy();
+                if (!refunds[slot].isEmpty()) refunds[slot].setCount(1);
+            }
+            this.sessionBetStacks[slot] = ItemStack.EMPTY;
+            this.wagerStates[slot] = WagerState.NONE;
+        }
+        return refunds;
+    }
+
     private void refundReservedWager(
             int slotIndex,
             @Nullable ServerPlayerEntity player
@@ -1480,13 +1536,7 @@ public class BlackjackTableTileEntity
         refund.setCount(1);
 
         if (player != null) {
-            player.inventory.add(refund);
-
-            if (!refund.isEmpty()) {
-                player.drop(refund, false);
-            }
-
-            player.inventory.setChanged();
+            ChipDelivery.give(player, refund);
         } else {
             dropChipAtSlot(slotIndex, refund);
         }
@@ -2312,14 +2362,14 @@ public class BlackjackTableTileEntity
          */
     }
 
-    private static void clearClientSession(
+    private void clearClientSession(
             @Nonnull ServerPlayerEntity player
     ) {
         ModNetwork.CHANNEL.send(
                 PacketDistributor.PLAYER.with(
                         () -> player
                 ),
-                BlackjackSessionPacket.clear()
+                BlackjackSessionPacket.clear(this.worldPosition)
         );
     }
 

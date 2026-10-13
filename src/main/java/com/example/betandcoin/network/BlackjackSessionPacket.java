@@ -14,7 +14,7 @@ import java.util.function.Supplier;
  * 保存牌桌主坐标与栏位编号。
  *
  * active = false：
- * 清除当前客户端会话。
+ * 仅清除与发送方牌桌匹配的客户端会话。
  */
 public class BlackjackSessionPacket {
 
@@ -43,10 +43,10 @@ public class BlackjackSessionPacket {
         );
     }
 
-    public static BlackjackSessionPacket clear() {
+    public static BlackjackSessionPacket clear(BlockPos tablePos) {
         return new BlackjackSessionPacket(
                 false,
-                BlockPos.ZERO,
+                tablePos,
                 -1
         );
     }
@@ -56,9 +56,9 @@ public class BlackjackSessionPacket {
             PacketBuffer buffer
     ) {
         buffer.writeBoolean(packet.active);
+        buffer.writeBlockPos(packet.tablePos);
 
         if (packet.active) {
-            buffer.writeBlockPos(packet.tablePos);
             buffer.writeInt(packet.slotIndex);
         }
     }
@@ -67,13 +67,14 @@ public class BlackjackSessionPacket {
             PacketBuffer buffer
     ) {
         boolean active = buffer.readBoolean();
+        BlockPos tablePos = buffer.readBlockPos();
 
         if (!active) {
-            return clear();
+            return clear(tablePos);
         }
 
         return open(
-                buffer.readBlockPos(),
+                tablePos,
                 buffer.readInt()
         );
     }
@@ -92,7 +93,7 @@ public class BlackjackSessionPacket {
                         packet.slotIndex
                 );
             } else {
-                BlackjackClientSession.clear();
+                BlackjackClientSession.clear(packet.tablePos);
             }
         });
 

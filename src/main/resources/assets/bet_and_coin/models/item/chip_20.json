@@ -402,23 +402,7 @@
     }
   ],
   "display": {
-    "gui": {
-      "rotation": [
-        60,
-        225,
-        0
-      ],
-      "translation": [
-        0,
-        0,
-        0
-      ],
-      "scale": [
-        0.56,
-        0.56,
-        0.56
-      ]
-    },
+    "gui": {"rotation": [60, 225, 0], "translation": [0.0, 3.0936, 0], "scale": [0.82496, 0.82496, 0.82496]},
     "ground": {
       "rotation": [
         0,

@@ -40,6 +40,17 @@ public class SlotMachineBlock extends HorizontalBlock {
         );
     }
 
+    @Override
+    public float getShadeBrightness(BlockState state, IBlockReader world, BlockPos pos) {
+        // The full collision box must not make neighboring open cabinet models almost black.
+        return 1.0F;
+    }
+
+    @Override
+    public boolean propagatesSkylightDown(BlockState state, IBlockReader world, BlockPos pos) {
+        return true;
+    }
+
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
@@ -90,6 +101,14 @@ public class SlotMachineBlock extends HorizontalBlock {
     ) {
         if (!oldState.is(newState.getBlock())) {
             DoubleBlockHalf half = oldState.getValue(HALF);
+
+            // Both halves eventually remove the lower block; settle before its data is removed.
+            if (!world.isClientSide && half == DoubleBlockHalf.LOWER) {
+                TileEntity tile = world.getBlockEntity(pos);
+                if (tile instanceof SlotMachineTileEntity) {
+                    ((SlotMachineTileEntity) tile).settleOnRemoval(oldState);
+                }
+            }
 
             BlockPos otherPos = half == DoubleBlockHalf.LOWER
                     ? pos.above()

@@ -1,0 +1,41 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "bet_and_coin:block/velvet_barrier_post"
+      }
+    },
+    {
+      "when": {
+        "north": "true"
+      },
+      "apply": {
+        "model": "bet_and_coin:block/velvet_barrier_rope_north"
+      }
+    },
+    {
+      "when": {
+        "east": "true"
+      },
+      "apply": {
+        "model": "bet_and_coin:block/velvet_barrier_rope_east"
+      }
+    },
+    {
+      "when": {
+        "south": "true"
+      },
+      "apply": {
+        "model": "bet_and_coin:block/velvet_barrier_rope_south"
+      }
+    },
+    {
+      "when": {
+        "west": "true"
+      },
+      "apply": {
+        "model": "bet_and_coin:block/velvet_barrier_rope_west"
+      }
+    }
+  ]
+}

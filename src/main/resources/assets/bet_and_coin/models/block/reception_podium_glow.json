@@ -1,0 +1,56 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "bet_and_coin:block/reception_podium_glow",
+		"particle": "bet_and_coin:block/reception_podium"
+	},
+	"elements": [
+		{
+			"name": "台灯",
+			"from": [9.5, 15.50389, 16.71821],
+			"to": [12, 16.00389, 16.71821],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [5.5, 2.25, 6.125, 2.375], "texture": "#0"},
+				"east": {"uv": [0, 0, 0, 0.125], "texture": "#0"},
+				"south": {"uv": [4.5, 5.5, 5.125, 5.625], "texture": "#0"},
+				"west": {"uv": [0, 0, 0, 0.125], "texture": "#0"},
+				"up": {"uv": [0, 0, 0.625, 0], "texture": "#0"},
+				"down": {"uv": [0, 0, 0.625, 0], "texture": "#0"}
+			}
+		},
+		{
+			"name": "台灯",
+			"from": [9.5, 15.50289, 16.71821],
+			"to": [12, 15.50289, 17.21821],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0.625, 0], "texture": "#0"},
+				"east": {"uv": [0, 0, 0.125, 0], "texture": "#0"},
+				"south": {"uv": [0, 0, 0.625, 0], "texture": "#0"},
+				"west": {"uv": [0, 0, 0.125, 0], "texture": "#0"},
+				"up": {"uv": [5.5, 5, 6.125, 5.125], "texture": "#0"},
+				"down": {"uv": [5.25, 5.5, 5.875, 5.625], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "讲台",
+			"origin": [8, 8, 8],
+			"scope": 0,
+			"color": 0,
+			"children": [
+				{
+					"name": "发光层",
+					"origin": [11.375, 18.15651, 10.32444],
+					"scope": 0,
+					"color": 0,
+					"children": [0, 1]
+				}
+			]
+		}
+	]
+}

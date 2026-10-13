@@ -6,6 +6,19 @@
   "item.bet_and_coin.chip_5": "5 Chip",
   "item.bet_and_coin.chip_20": "20 Chip",
   "item.bet_and_coin.playing_card_test": "Playing Card Test Item",
+  "block.bet_and_coin.bar_table_clutter": "Table Clutter",
   "block.bet_and_coin.bar_neon_sign": "BAR Neon Sign",
-  "block.bet_and_coin.casino_fountain": "Casino Fountain"
+  "block.bet_and_coin.casino_fountain": "Casino Fountain",
+  "block.bet_and_coin.casino_farkle_table": "Farkle Table",
+  "block.bet_and_coin.reception_podium": "Reception Podium",
+  "block.bet_and_coin.velvet_barrier": "Velvet Rope Barrier",
+
+  "roulette.bet_and_coin.black": "Black",
+  "block.bet_and_coin.roulette_table": "Roulette Table",
+  "message.bet_and_coin.roulette_bet": "Bet on %s: %s chips; betting closes 5 seconds after the first bet",
+  "roulette.bet_and_coin.green": "Green",
+  "message.bet_and_coin.roulette_locked": "Betting is closed; wait for settlement",
+  "roulette.bet_and_coin.red": "Red",
+  "message.bet_and_coin.roulette_result": "Roulette result: %s. Winning red/black returns 2x, green returns 10x (including stake)."
+
 }

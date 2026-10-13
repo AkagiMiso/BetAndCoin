@@ -2,5 +2,8 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "bet_and_coin:item/blackjack_table"
-  }
+  },
+  "display": {
+    "thirdperson_lefthand": {"rotation": [75, 45, 0], "translation": [-0.03367, 2.4305, -0.12927], "scale": [0.380952, 0.380952, 0.380952]},
+    "thirdperson_righthand": {"rotation": [75, 45, 0], "translation": [0.03367, 2.49555, -0.1467], "scale": [0.380952, 0.380952, 0.380952]},"gui": {"rotation": [0, 0, 0], "translation": [0.1111, -0.3333, 0], "scale": [0.88889, 0.88889, 0.88889]}}
 }

@@ -34,6 +34,10 @@ public final class BlackjackClientSession {
         slotIndex = -1;
     }
 
+    public static void clear(BlockPos sourceTable) {
+        if (sourceTable.equals(tablePos)) clear();
+    }
+
     public static boolean isActive() {
         return tablePos != null
                 && slotIndex >= 0;

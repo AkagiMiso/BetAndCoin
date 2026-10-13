@@ -7,8 +7,8 @@ import com.example.betandcoin.network.ModNetwork;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.player.ClientPlayerEntity;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -56,9 +56,18 @@ public final class BlackjackGestureTestHandler {
     private static int successMessageTicks;
     private static int cooldownTicks;
 
-    private static String successMessage = "";
 
     private BlackjackGestureTestHandler() {
+    }
+
+    @SubscribeEvent
+    public static void onLogout(ClientPlayerNetworkEvent.LoggedOutEvent event) {
+        resetAll();
+    }
+
+    @SubscribeEvent
+    public static void onRespawn(ClientPlayerNetworkEvent.RespawnEvent event) {
+        resetAll();
     }
 
     @SubscribeEvent
@@ -102,8 +111,6 @@ public final class BlackjackGestureTestHandler {
 
         if (successMessageTicks > 0) {
             successMessageTicks--;
-            // 临时关闭手势成功提示文本，保留识别逻辑。
-            // showMessage(player, successMessage);
 
             if (successMessageTicks == 0) {
                 resetGesture(
@@ -116,12 +123,6 @@ public final class BlackjackGestureTestHandler {
 
         if (cooldownTicks > 0) {
             cooldownTicks--;
-            // 临时关闭手势冷却提示文本。
-            // showMessage(
-            //         player,
-            //         "手势测试：冷却中 "
-            //                 + cooldownTicks
-            // );
             return;
         }
 
@@ -216,15 +217,6 @@ public final class BlackjackGestureTestHandler {
                     currentYaw
             );
         }
-
-        if (successMessageTicks <= 0) {
-            // 临时关闭手势调试 HUD 文本。
-            // showDebugMessage(
-            //         player,
-            //         pitchOffset,
-            //         yawOffset
-            // );
-        }
     }
 
     private static void updateNod(
@@ -245,9 +237,7 @@ public final class BlackjackGestureTestHandler {
             case DOWN:
                 if (pitchOffset
                         <= -VERTICAL_THRESHOLD) {
-                    completeGesture(
-                            "检测到点头：要牌"
-                    );
+                    completeGesture();
                 }
                 break;
 
@@ -287,9 +277,7 @@ public final class BlackjackGestureTestHandler {
                         * firstSideDirection
                         >= HORIZONTAL_THRESHOLD) {
 
-                    completeGesture(
-                            "检测到摇头：停牌"
-                    );
+                    completeGesture();
                 }
                 break;
 
@@ -306,10 +294,7 @@ public final class BlackjackGestureTestHandler {
         }
     }
 
-    private static void completeGesture(
-            String message
-    ) {
-        successMessage = message;
+    private static void completeGesture() {
         successMessageTicks =
                 SUCCESS_MESSAGE_TICKS;
         cooldownTicks =
@@ -350,55 +335,6 @@ public final class BlackjackGestureTestHandler {
         }
     }
 
-    private static void showDebugMessage(
-            ClientPlayerEntity player,
-            float pitchOffset,
-            float yawOffset
-    ) {
-        String gestureName;
-        String stageName;
-
-        switch (activeGesture) {
-            case NOD:
-                gestureName = "点头";
-                stageName =
-                        getNodStageName(nodStage);
-                break;
-
-            case SHAKE:
-                gestureName = "摇头";
-                stageName =
-                        getShakeStageName(
-                                shakeStage
-                        );
-                break;
-
-            case NONE:
-            default:
-                gestureName = "等待动作";
-                stageName = "未锁定";
-                break;
-        }
-
-        showMessage(
-                player,
-                "手势测试 | "
-                        + gestureName
-                        + " | 阶段："
-                        + stageName
-                        + " | Pitch："
-                        + String.format(
-                                "%.1f",
-                                pitchOffset
-                        )
-                        + " | Yaw："
-                        + String.format(
-                                "%.1f",
-                                yawOffset
-                        )
-        );
-    }
-
     private static void resetGesture(
             float currentPitch,
             float currentYaw
@@ -420,6 +356,7 @@ public final class BlackjackGestureTestHandler {
     }
 
     private static void resetAll() {
+        BlackjackClientSession.clear();
         activeGesture =
                 GestureType.NONE;
 
@@ -436,59 +373,6 @@ public final class BlackjackGestureTestHandler {
         gestureTicks = 0;
         successMessageTicks = 0;
         cooldownTicks = 0;
-        successMessage = "";
-    }
-
-    private static void showMessage(
-            ClientPlayerEntity player,
-            String message
-    ) {
-        player.displayClientMessage(
-                new StringTextComponent(message),
-                true
-        );
-    }
-
-    private static String getNodStageName(
-            NodStage stage
-    ) {
-        switch (stage) {
-            case IDLE:
-                return "等待向上";
-
-            case UP_1:
-                return "已到上方，等待向下";
-
-            case DOWN:
-                return "已到下方，等待再次向上";
-
-            case SUCCESS:
-                return "识别成功";
-
-            default:
-                return "未知";
-        }
-    }
-
-    private static String getShakeStageName(
-            ShakeStage stage
-    ) {
-        switch (stage) {
-            case IDLE:
-                return "等待任意一侧";
-
-            case FIRST_SIDE:
-                return "已到第一侧，等待相反侧";
-
-            case OPPOSITE_SIDE:
-                return "已到相反侧，等待返回";
-
-            case SUCCESS:
-                return "识别成功";
-
-            default:
-                return "未知";
-        }
     }
 
     private enum GestureType {

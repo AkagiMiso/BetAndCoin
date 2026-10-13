@@ -1,6 +1,7 @@
 package com.example.betandcoin.registry;
 
 import com.example.betandcoin.BetAndCoin;
+import com.example.betandcoin.item.CasinoFarkleTableItem;
 import com.example.betandcoin.item.PlayingCardTestItem;
 
 import net.minecraft.item.BlockItem;
@@ -38,7 +39,6 @@ public final class ModItems {
                     () -> new BlockItem(
                             ModBlocks.CARD_DECK.get(),
                             new Item.Properties()
-                                    .tab(ModItemGroups.BET_AND_COIN)
                                     .stacksTo(64)
                     )
             );
@@ -79,6 +79,11 @@ public final class ModItems {
                     )
             );
 
+    public static final RegistryObject<Item> RECEPTION_PODIUM =
+            ITEMS.register("reception_podium",
+                    () -> new BlockItem(ModBlocks.RECEPTION_PODIUM.get(),
+                            new Item.Properties().tab(ModItemGroups.BET_AND_COIN).stacksTo(16)));
+
 
     public static final RegistryObject<Item> CHIP_5 =
             ITEMS.register(
@@ -107,7 +112,6 @@ public final class ModItems {
                     "playing_card_test",
                     () -> new PlayingCardTestItem(
                             new Item.Properties()
-                                    .tab(ModItemGroups.BET_AND_COIN)
                                     .stacksTo(1)
                     )
             );
@@ -128,7 +132,7 @@ public final class ModItems {
     public static final RegistryObject<Item> CASINO_FARKLE_TABLE =
             ITEMS.register(
                     "casino_farkle_table",
-                    () -> new BlockItem(
+                    () -> new CasinoFarkleTableItem(
                             ModBlocks.CASINO_FARKLE_TABLE.get(),
                             new Item.Properties()
                                     .tab(ModItemGroups.BET_AND_COIN)
@@ -136,6 +140,15 @@ public final class ModItems {
                     )
             );
 
+
+    public static final RegistryObject<Item> VELVET_BARRIER =
+            ITEMS.register("velvet_barrier",
+                    () -> new BlockItem(ModBlocks.VELVET_BARRIER.get(),
+                            new Item.Properties().tab(ModItemGroups.BET_AND_COIN).stacksTo(64)));
+
+    public static final RegistryObject<Item> ROULETTE_TABLE =
+            ITEMS.register("roulette_table", () -> new BlockItem(ModBlocks.ROULETTE_TABLE.get(),
+                    new Item.Properties().tab(ModItemGroups.BET_AND_COIN).stacksTo(1)));
 
     private ModItems() {
     }

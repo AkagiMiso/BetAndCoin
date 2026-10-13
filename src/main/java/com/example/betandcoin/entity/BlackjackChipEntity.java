@@ -1,5 +1,7 @@
 package com.example.betandcoin.entity;
 
+import com.example.betandcoin.util.BlackjackDisplayCleanup;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemStack;
@@ -88,6 +90,8 @@ public class BlackjackChipEntity extends Entity {
     @Override
     public void tick() {
         super.tick();
+        BlackjackDisplayCleanup.removeIfSourceMissing(this, this.sourceBlackjackTablePos);
+        if (this.removed) return;
         this.setDeltaMovement(Vector3d.ZERO);
         this.noPhysics = true;
         this.setNoGravity(true);

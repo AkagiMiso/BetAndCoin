@@ -1,5 +1,7 @@
 package com.example.betandcoin.block;
 
+import net.minecraft.block.material.PushReaction;
+
 import com.example.betandcoin.network.BlackjackSessionPacket;
 import com.example.betandcoin.network.ModNetwork;
 import com.example.betandcoin.registry.ModBlocks;
@@ -28,6 +30,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class BlackjackTablePartBlock extends HorizontalBlock {
+
+    @Override
+    public PushReaction getPistonPushReaction(BlockState state) {
+        return PushReaction.BLOCK;
+    }
 
     public static final DirectionProperty FACING =
             HorizontalBlock.FACING;
@@ -163,6 +170,18 @@ public class BlackjackTablePartBlock extends HorizontalBlock {
     }
 
 
+
+    @Override
+    public void playerWillDestroy(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        // Remove the main block before this cell so its callback cannot create creative drops.
+        if (!world.isClientSide && player.isCreative()) {
+            BlockPos main = getMainBlockPos(pos, state);
+            if (world.getBlockState(main).is(ModBlocks.BLACKJACK_TABLE.get())) {
+                world.destroyBlock(main, false);
+            }
+        }
+        super.playerWillDestroy(world, pos, state, player);
+    }
 
     @Override
     public void onRemove(

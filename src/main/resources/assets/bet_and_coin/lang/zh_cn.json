@@ -6,6 +6,19 @@
   "item.bet_and_coin.chip_5": "5点筹码",
   "item.bet_and_coin.chip_20": "20点筹码",
   "item.bet_and_coin.playing_card_test": "扑克牌测试物品",
+  "block.bet_and_coin.bar_table_clutter": "桌面杂物",
   "block.bet_and_coin.bar_neon_sign": "BAR 霓虹灯招牌",
-  "block.bet_and_coin.casino_fountain": "赌场许愿喷泉"
+  "block.bet_and_coin.casino_fountain": "赌场许愿喷泉",
+  "block.bet_and_coin.casino_farkle_table": "Farkle 游戏桌",
+  "block.bet_and_coin.reception_podium": "礼宾台",
+  "block.bet_and_coin.velvet_barrier": "红绒隔离带",
+
+  "roulette.bet_and_coin.black": "黑色",
+  "block.bet_and_coin.roulette_table": "轮盘赌桌",
+  "message.bet_and_coin.roulette_bet": "已押 %s：%s 筹码；首注后 5 秒锁注",
+  "roulette.bet_and_coin.green": "绿色",
+  "message.bet_and_coin.roulette_locked": "已锁注，请等待本局结算",
+  "roulette.bet_and_coin.red": "红色",
+  "message.bet_and_coin.roulette_result": "轮盘结果：%s。押中红/黑返还 2 倍，绿返还 10 倍（含本金）。"
+
 }

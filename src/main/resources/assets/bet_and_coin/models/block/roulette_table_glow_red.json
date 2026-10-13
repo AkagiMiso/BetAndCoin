@@ -1,0 +1,7 @@
+{
+  "parent": "bet_and_coin:block/roulette_table_glow",
+  "textures": {
+    "0": "bet_and_coin:block/roulette_table_glow_red",
+    "particle": "bet_and_coin:block/roulette_table_glow_red"
+  }
+}

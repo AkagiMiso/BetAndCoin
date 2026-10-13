@@ -1,5 +1,7 @@
 package com.example.betandcoin.entity;
 
+import com.example.betandcoin.util.BlackjackDisplayCleanup;
+
 import com.example.betandcoin.game.blackjack.CardRank;
 import com.example.betandcoin.game.blackjack.CardSuit;
 import net.minecraft.entity.Entity;
@@ -86,6 +88,12 @@ public class PlayingCardEntity extends Entity {
         this.entityData.define(RANK, 0);
         this.entityData.define(FACE_UP, false);
         this.entityData.define(BLACKJACK_CARD, false);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        BlackjackDisplayCleanup.removeIfSourceMissing(this, this.sourceBlackjackTablePos);
     }
 
     /**
