@@ -26,6 +26,6 @@ Bet & Coin 为 Minecraft 添加赌场小游戏、筹码和配套装饰，围绕�
 
 将 Bet & Coin 和对应 GeckoLib 的 `.jar` 文件放入游戏实例或服务器的 `mods` 文件夹，使用 Forge 启动。联机时，客户端与服务端应保持模组及依赖版本一致。
 
-[玩法指南（English / 简体中文）](https://akagimiso.github.io/BetAndCoin/) · [Bug 反馈与功能建议](https://github.com/AkagiMiso/BetAndCoin/issues/new/choose)
+[玩法指南（English / 简体中文）](https://akagimiso.github.io/BetAndCoin/) · [Bug 反馈与功能建议](https://github.com/AkagiMiso/BetAndCoin/issues/new)
 
 作者：**AkagiMiso**。代码、贴图和模型采用 [MIT 许可](LICENSE.txt)。使用、修改或分发时须保留原版权声明及完整的 MIT 许可声明。
