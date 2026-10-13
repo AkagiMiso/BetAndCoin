@@ -1,0 +1,73 @@
+name: Bug report / Bug 反馈
+description: Report a gameplay, rendering or crash issue / 反馈玩法、显示或崩溃问题
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please check existing issues before reporting. English and Chinese are both welcome.
+        提交前请查看是否已有相同问题，支持英文或中文反馈。
+        For gameplay instructions, see the [Player Guide](https://akagimiso.github.io/BetAndCoin/).
+  - type: textarea
+    id: versions
+    attributes:
+      label: Versions / 版本
+      description: Include all four versions / 请填写以下四项版本
+      placeholder: |
+        Minecraft:
+        Forge:
+        Bet & Coin:
+        GeckoLib:
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment / 游戏环境
+      options:
+        - Singleplayer / 单人游戏
+        - Multiplayer client / 联机客户端
+        - Dedicated server / 独立服务器
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened? / 问题表现
+      description: Describe the issue and the affected block or game / 描述具体问题及涉及的方块或游戏
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce / 复现步骤
+      description: Describe your actions in order. If it happened only once, say so. / 按顺序描述操作；若只发生过一次，也请说明。
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior / 预期表现
+    validations:
+      required: false
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots and logs / 截图与日志
+      description: |
+        Drag screenshots or log files here. For crashes, attach the crash report.
+        可拖入截图或日志文件；崩溃问题请附崩溃报告。
+    validations:
+      required: false
+  - type: textarea
+    id: other-mods
+    attributes:
+      label: Other mods and shaders / 其他模组与光影
+      description: For visual issues, include your shader pack and shader loader names / 显示问题请注明光影包及加载器
+    validations:
+      required: false

@@ -1,0 +1,31 @@
+name: Feature suggestion / 功能建议
+description: Suggest a new feature or improvement / 提出新功能或改进建议
+title: "[Suggestion] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        English and Chinese are both welcome. Please check existing suggestions first.
+        支持英文或中文反馈，提交前请查看是否已有相同建议。
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Your suggestion / 建议内容
+      description: What would you like to add or improve? / 你希望添加或改进什么？
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Purpose and use case / 用途与场景
+      description: How would this help players or server activities? / 这会如何帮助玩家或服务器活动？
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples or references / 示例或参考
+      description: Optional images, sketches or links / 可附图片、草图或链接
+    validations:
+      required: false
