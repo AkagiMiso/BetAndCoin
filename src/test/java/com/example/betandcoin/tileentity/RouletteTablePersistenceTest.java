@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.nbt.*;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.fml.RegistryObject;
 import org.junit.*;
 import java.lang.reflect.*;
@@ -46,6 +47,28 @@ public class RouletteTablePersistenceTest {
     private void settle(RouletteTableTileEntity table) throws Exception {
         Method settle = RouletteTableTileEntity.class.getDeclaredMethod("settle");
         settle.setAccessible(true); settle.invoke(table);
+    }
+
+    @Test public void offlineCreditsKeepDifferentChipTagsThroughSettlementAndSave() throws Exception {
+        CompoundNBT first = bet("GREEN", Items.EMERALD, 1);
+        CompoundNBT second = bet("GREEN", Items.EMERALD, 2);
+        ItemStack namedFirst = new ItemStack(Items.EMERALD);
+        ItemStack namedSecond = new ItemStack(Items.EMERALD);
+        namedFirst.setHoverName(new StringTextComponent("First chip"));
+        namedSecond.setHoverName(new StringTextComponent("Second chip"));
+        first.put("Chips", namedFirst.save(new CompoundNBT()));
+        second.put("Chips", namedSecond.save(new CompoundNBT()));
+        RouletteTableTileEntity table = table("RESULT_FLASH", 14, first, second);
+        settle(table);
+        ListNBT credits = table.save(new CompoundNBT()).getList("Credits", 10);
+        assertEquals(2, credits.size());
+        assertEquals(10, credits.getCompound(0).getInt("Count"));
+        assertEquals(20, credits.getCompound(1).getInt("Count"));
+        assertTrue(ItemStack.tagMatches(namedFirst, ItemStack.of(credits.getCompound(0).getCompound("Chips"))));
+        assertTrue(ItemStack.tagMatches(namedSecond, ItemStack.of(credits.getCompound(1).getCompound("Chips"))));
+        RouletteTableTileEntity restored = new RouletteTableTileEntity(TileEntityType.CHEST);
+        restored.load(Blocks.AIR.defaultBlockState(), table.save(new CompoundNBT()));
+        assertEquals(credits, restored.save(new CompoundNBT()).getList("Credits", 10));
     }
 
     @Test public void largeStakesAndOfflineRewardsSurviveSaveAndDoNotPayTwice() throws Exception {

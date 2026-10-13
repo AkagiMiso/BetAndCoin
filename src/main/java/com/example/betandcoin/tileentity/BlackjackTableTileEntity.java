@@ -428,6 +428,10 @@ public class BlackjackTableTileEntity
             return GestureResult.WRONG_PHASE;
         }
 
+        if (!player.isAlive()) {
+            return GestureResult.NOT_OWNER;
+        }
+
         if (!isSlotOwnedBy(slotIndex, player)
                 || !this.roundParticipants[slotIndex]) {
             return GestureResult.NOT_OWNER;
@@ -1384,6 +1388,7 @@ public class BlackjackTableTileEntity
 
             boolean leftTable =
                     player == null
+                            || !player.isAlive()
                             || player.level != serverWorld;
 
             if (!leftTable) {
@@ -1404,6 +1409,9 @@ public class BlackjackTableTileEntity
             }
 
             handleSlotDeparture(slotIndex, player);
+            // A candidate can leave while another player is waiting for a gesture.
+            // Persist the consumed reservation even when no phase transition follows.
+            markAndSync();
 
             if (player != null) {
                 clearClientSession(player);

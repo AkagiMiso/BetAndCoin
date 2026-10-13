@@ -49,7 +49,7 @@ public class RouletteTableTileEntity extends TileEntity implements ITickableTile
         if (phase == Phase.SETTLED_RESULT) reset();
         Bet matching = null;
         for (Bet bet : bets) if (bet.player.equals(player.getUUID()) && bet.color == color
-                && ItemStack.isSame(bet.chips, held)) { matching = bet; break; }
+                && sameChips(bet.chips, held)) { matching = bet; break; }
         if (matching != null && matching.chips.getCount() >= RouletteRules.MAX_CHIPS_PER_BET
                 || matching == null && bets.size() >= RouletteRules.MAX_BETS) return false;
         if (matching == null) {
@@ -111,7 +111,7 @@ public class RouletteTableTileEntity extends TileEntity implements ITickableTile
                             payOrQueue(bet.player, bet.color, bet.chips, 1);
                             iterator.remove(); changed = true;
                             visibleChips.removeIf(chip -> chip.player.equals(bet.player) && chip.color == bet.color
-                                    && ItemStack.isSame(chip.chips, bet.chips));
+                                    && sameChips(chip.chips, bet.chips));
                         }
                     }
                     if (bets.isEmpty()) { reset(); sync(); return; }
@@ -168,11 +168,15 @@ public class RouletteTableTileEntity extends TileEntity implements ITickableTile
         ServerPlayerEntity player = player(owner);
         if (player != null) deliver(player, amount);
         else {
-            for (Bet credit : credits) if (credit.player.equals(owner) && ItemStack.isSame(credit.chips, amount)) {
+            for (Bet credit : credits) if (credit.player.equals(owner) && sameChips(credit.chips, amount)) {
                 credit.chips.grow(amount.getCount()); setChanged(); return;
             }
             credits.add(new Bet(owner, color, amount)); setChanged();
         }
+    }
+
+    private static boolean sameChips(ItemStack first, ItemStack second) {
+        return ItemStack.isSame(first, second) && ItemStack.tagMatches(first, second);
     }
 
     private void deliver(ServerPlayerEntity player, ItemStack amount) {

@@ -3,7 +3,9 @@ package com.example.betandcoin.network;
 import com.example.betandcoin.BetAndCoin;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.network.NetworkRegistry;
+import net.minecraftforge.fml.network.NetworkDirection;
 import net.minecraftforge.fml.network.simple.SimpleChannel;
+import java.util.Optional;
 
 public final class ModNetwork {
 
@@ -31,7 +33,8 @@ public final class ModNetwork {
                 BlackjackGesturePacket.class,
                 BlackjackGesturePacket::encode,
                 BlackjackGesturePacket::decode,
-                BlackjackGesturePacket::handle
+                BlackjackGesturePacket::handle,
+                Optional.of(NetworkDirection.PLAY_TO_SERVER)
         );
 
         CHANNEL.registerMessage(
@@ -39,7 +42,8 @@ public final class ModNetwork {
                 BlackjackSessionPacket.class,
                 BlackjackSessionPacket::encode,
                 BlackjackSessionPacket::decode,
-                BlackjackSessionPacket::handle
+                BlackjackSessionPacket::handle,
+                Optional.of(NetworkDirection.PLAY_TO_CLIENT)
         );
     }
 }

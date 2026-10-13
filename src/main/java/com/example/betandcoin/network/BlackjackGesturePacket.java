@@ -7,6 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraftforge.fml.network.NetworkEvent;
+import net.minecraftforge.fml.network.NetworkDirection;
 
 import java.util.function.Supplier;
 
@@ -58,11 +59,16 @@ public class BlackjackGesturePacket {
         NetworkEvent.Context context =
                 contextSupplier.get();
 
+        if (context.getDirection() != NetworkDirection.PLAY_TO_SERVER) {
+            context.setPacketHandled(true);
+            return;
+        }
+
         context.enqueueWork(() -> {
             ServerPlayerEntity player =
                     context.getSender();
 
-            if (player == null) {
+            if (player == null || !player.isAlive()) {
                 return;
             }
 

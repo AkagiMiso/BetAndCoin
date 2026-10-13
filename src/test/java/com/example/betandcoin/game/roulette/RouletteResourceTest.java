@@ -18,6 +18,31 @@ public class RouletteResourceTest {
         }
     }
 
+    @Test public void fiveChipLayersTouchTheFeltAndEachOtherForBothDenominations() throws Exception {
+        double feltY = json("models/block/roulette_table_main.json").getAsJsonArray("elements").get(1)
+                .getAsJsonObject().getAsJsonArray("to").get(1).getAsDouble();
+        for (String name : new String[] {"chip_5", "chip_20"}) {
+            JsonObject model = json("models/item/" + name + ".json");
+            JsonObject ground = model.getAsJsonObject("display").getAsJsonObject("ground");
+            double translation = ground.getAsJsonArray("translation").get(1).getAsDouble();
+            double scale = ground.getAsJsonArray("scale").get(1).getAsDouble();
+            double min = Double.POSITIVE_INFINITY, max = Double.NEGATIVE_INFINITY;
+            for (JsonElement element : model.getAsJsonArray("elements")) {
+                JsonObject cube = element.getAsJsonObject();
+                min = Math.min(min, cube.getAsJsonArray("from").get(1).getAsDouble());
+                max = Math.max(max, cube.getAsJsonArray("to").get(1).getAsDouble());
+            }
+            double previousTop = feltY;
+            for (int layer = 0; layer < 5; layer++) {
+                double origin = RouletteGeometry.CHIP_Y + layer * RouletteGeometry.CHIP_LAYER_HEIGHT;
+                double bottom = origin + RouletteGeometry.CHIP_SCALE * (translation + (min - 8) * scale);
+                double top = origin + RouletteGeometry.CHIP_SCALE * (translation + (max - 8) * scale);
+                assertEquals(name + " layer " + layer + " floats or clips", previousTop, bottom, 0.00001);
+                previousTop = top;
+            }
+        }
+    }
+
     @Test public void segmentTransformsAndColorsMatchActualWheelUv() throws Exception {
         BufferedImage texture = ImageIO.read(getClass().getResourceAsStream(ROOT + "textures/block/roulette_table_main.png"));
         JsonObject wheel = json("models/block/roulette_table_main.json").getAsJsonArray("elements").get(18).getAsJsonObject();

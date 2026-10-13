@@ -14,9 +14,11 @@ public final class RouletteGeometry {
             new BetZone(8.5, -4, 12.5, -1.5),
             new BetZone(6, -1, 10.5, 1.5)
     };
-    public static final double CHIP_Y = 15.25;
-    public static final double CHIP_LAYER_HEIGHT = 0.35;
     public static final float CHIP_SCALE = 0.48f;
+    // GROUND translates by 2 pixels and scales by 0.3, after centering at -8.
+    // Keep the first chip on the 15-pixel felt and each layer on the preceding chip.
+    public static final double CHIP_Y = 15.0 - CHIP_SCALE * (2.0 - 8.0 * 0.3);
+    public static final double CHIP_LAYER_HEIGHT = CHIP_SCALE * 0.3;
     public static final double GLOW_Y_OFFSET = 0.005;
 
     private RouletteGeometry() {}

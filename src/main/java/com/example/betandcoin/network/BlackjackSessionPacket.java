@@ -4,6 +4,7 @@ import com.example.betandcoin.client.BlackjackClientSession;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.network.NetworkEvent;
+import net.minecraftforge.fml.network.NetworkDirection;
 
 import java.util.function.Supplier;
 
@@ -85,6 +86,11 @@ public class BlackjackSessionPacket {
     ) {
         NetworkEvent.Context context =
                 contextSupplier.get();
+
+        if (context.getDirection() != NetworkDirection.PLAY_TO_CLIENT) {
+            context.setPacketHandled(true);
+            return;
+        }
 
         context.enqueueWork(() -> {
             if (packet.active) {
